@@ -1,5 +1,12 @@
 # prompt
-PROMPT='%F{cyan}%B%n%b%f at %F{green}%d%f> '
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s:%b)'
+precmd (){
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    psvar[1]=$vcs_info_msg_0_
+}
+PROMPT='%F{cyan}%B%n%b%f at %F{green}%d%f%F{magenta}%1v%f> '
 RPROMPT='%F{yellow}%B[%D %*]%b%f'
 
 # completion
@@ -41,6 +48,8 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias glg='git log --stat'
 alias glgp='git log -p'
+alias gb='git branch'
+alias gbd='git branch -d'
 
 alias diff='diff -u'
 alias reset='source ~/.zshrc'
