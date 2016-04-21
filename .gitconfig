@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Junichi Kobayashi
+	email = junichi.kobayashi@esm.co.jp
+[pull]
+	rebase = true

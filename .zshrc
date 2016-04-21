@@ -14,6 +14,7 @@ autoload -U compinit
 compinit
 setopt correct
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt auto_cd
 
 #history
@@ -50,8 +51,11 @@ alias glg='git log --stat'
 alias glgp='git log -p'
 alias gb='git branch'
 alias gbd='git branch -d'
+alias gcl='git clone'
 
 alias diff='diff -u'
 alias reset='source ~/.zshrc'
-alias config='vi ~/dotfiles/.zshrc'
+alias zconf='vi ~/dotfiles/.zshrc'
+alias gconf='vi ~/dotfiles/.gitconfig'
 alias l='ls -al'
+alias subl='vim'
