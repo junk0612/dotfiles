@@ -30,6 +30,9 @@ export LANG=ja_JP.UTF-8
 
 eval "$(rbenv init -)"
 
+# Global aliases
+alias -g hrk='heroku'
+
 # Aliases
 alias g=git
 alias ga='git add'
@@ -45,13 +48,17 @@ alias gpom='git push origin master'
 alias gsta='git stash'
 alias gstp='git stash pop'
 alias gm='git merge'
-alias gc='git commit'
-alias gcm='git commit -m'
+alias gcm='git commit'
 alias glg='git log --stat'
 alias glgp='git log -p'
 alias gb='git branch'
 alias gbd='git branch -d'
+alias gba='git branch -a'
 alias gcl='git clone'
+
+alias bi='bundle install'
+alias be='bundle exec'
+alias bu='bundle update'
 
 alias diff='diff -u'
 alias reset='source ~/.zshrc'
@@ -59,3 +66,4 @@ alias zconf='vi ~/dotfiles/.zshrc'
 alias gconf='vi ~/dotfiles/.gitconfig'
 alias l='ls -al'
 alias subl='vim'
+alias mkcd='source ~/dotfiles/mkcd.sh'
