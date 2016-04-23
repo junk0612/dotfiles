@@ -1,5 +1,5 @@
 #!/bin/zsh
-DOT_FILES=(.zshrc .zprofile .gitconfig)
+DOT_FILES=(.zshrc .zprofile .gitconfig .vimrc)
 
 for file in ${DOT_FILES[@]}
 do
