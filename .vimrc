@@ -22,4 +22,7 @@ set ignorecase
 set smartcase
 set incsearch
 set backspace=indent,eol,start
+autocmd! Filetype html setlocal shiftwidth=2
+autocmd! Filetype ruby setlocal shiftwidth=2
+autocmd! Filetype eruby setlocal shiftwidth=2
 
