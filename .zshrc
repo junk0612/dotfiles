@@ -6,7 +6,7 @@ precmd (){
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
 }
-PROMPT='%F{cyan}%B%n%b%f at %F{green}%d%f%F{magenta}%1v%f> '
+PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
 RPROMPT='%F{yellow}%B[%D %*]%b%f'
 
 # completion
@@ -37,10 +37,14 @@ export LANG=ja_JP.UTF-8
 
 eval "$(rbenv init -)"
 
+# bind keys
+bindkey -v
+
 # Global aliases
 alias -g hrk='heroku'
 
 # Aliases
+## git
 alias g=git
 alias ga='git add'
 alias gst='git status'
@@ -67,10 +71,12 @@ alias grb='git rebase'
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
 
+## rails
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
 
+## others
 alias diff='diff -u'
 alias reset='source ~/.zshrc'
 alias zconf='vi ~/dotfiles/.zshrc'
@@ -78,5 +84,7 @@ alias gconf='vi ~/dotfiles/.gitconfig'
 alias vconf='vi ~/dotfiles/.vimrc'
 alias l='ls -al'
 alias subl='vim'
+alias vi='vim'
 alias mkcd='source ~/dotfiles/mkcd.sh'
 alias pushconf='source ~/dotfiles/update.sh'
+alias clr='clear'
