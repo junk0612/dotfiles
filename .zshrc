@@ -38,7 +38,7 @@ export LANG=ja_JP.UTF-8
 eval "$(rbenv init -)"
 
 # bind keys
-bindkey -v
+bindkey -e
 
 # Global aliases
 alias -g hrk='heroku'
