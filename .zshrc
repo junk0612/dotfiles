@@ -90,4 +90,4 @@ alias mkcd='source ~/dotfiles/mkcd.sh'
 alias pushconf='source ~/dotfiles/update.sh'
 alias diffconf='source ~/dotfiles/diff.sh'
 alias clr='clear'
-
+alias t=tmux

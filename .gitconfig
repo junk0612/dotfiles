@@ -4,3 +4,5 @@
 	email = junichi.kobayashi@esm.co.jp
 [pull]
 	rebase = true
+[core]
+	editor = /usr/local/bin/vim
