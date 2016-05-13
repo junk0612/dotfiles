@@ -16,6 +16,19 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('scrooloose/nerdtree')
+call dein#add('tpope/vim-endwise')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-rails')
+call dein#add('Shougo/unite.vim')
+call dein#add('cakebaker/scss-syntax.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('basyura/unite-rails')
+call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim']})
+call dein#add('Shougo/neocomplete.vim', {'on_i': 1, 'lazy': 1})
+call dein#add('powerline/powerline')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -27,9 +40,9 @@ call dein#end()
 filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
@@ -54,10 +67,35 @@ set hlsearch
 set showmatch
 set showcmd
 set ignorecase
+set laststatus=2
+set showtabline=2
+set noshowmode
 set smartcase
 set incsearch
 set backspace=indent,eol,start
+set statusline+=%{fugitive#statusline()}
 autocmd! Filetype html setlocal shiftwidth=2
 autocmd! Filetype ruby setlocal shiftwidth=2
 autocmd! Filetype eruby setlocal shiftwidth=2
+autocmd BufWritePre * :FixWhitespace
+autocmd QuickFixCmdPost *grep* cwindow
+autocmd vimenter * NERDTree
 
+" alias
+:command Tree NERDTree
+let NERDTreeShowHidden = 1
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+:command Q qa
+:command WQ wqa
+
+" key mapping
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+nmap <Space>t :NERTTreeToggle<CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+nnoremap SS ZZ
+nnoremap _ $
