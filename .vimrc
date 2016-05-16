@@ -29,6 +29,7 @@ call dein#add('basyura/unite-rails')
 call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim']})
 call dein#add('Shougo/neocomplete.vim', {'on_i': 1, 'lazy': 1})
 call dein#add('powerline/powerline')
+call dein#add('scrooloose/syntastic')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -79,15 +80,11 @@ autocmd! Filetype ruby setlocal shiftwidth=2
 autocmd! Filetype eruby setlocal shiftwidth=2
 autocmd BufWritePre * :FixWhitespace
 autocmd QuickFixCmdPost *grep* cwindow
-autocmd vimenter * NERDTree
 
 " alias
-:command Tree NERDTree
 let NERDTreeShowHidden = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-:command Q qa
-:command WQ wqa
 
 " key mapping
 nnoremap [unite] <Nop>
