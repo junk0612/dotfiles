@@ -30,6 +30,7 @@ call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim']})
 call dein#add('Shougo/neocomplete.vim', {'on_i': 1, 'lazy': 1})
 call dein#add('powerline/powerline')
 call dein#add('scrooloose/syntastic')
+call dein#add('szw/vim-tags')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -85,6 +86,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 let NERDTreeShowHidden = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
+set tags+=.tags
+set tags+=.Gemfile.lock.tags
+nnoremap <C-]> g<C-]>
 
 " key mapping
 nnoremap [unite] <Nop>
