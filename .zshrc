@@ -27,7 +27,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
-source ~/.enhancd/src/enhancd.sh
+source ~/.enhancd/enhancd.sh
 
 # directory stack
 setopt auto_pushd
