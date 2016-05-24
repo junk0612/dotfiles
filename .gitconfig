@@ -8,3 +8,5 @@
 	editor = /usr/local/bin/vim
 [alias]
     delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+[ghq]
+    root = ~/git
