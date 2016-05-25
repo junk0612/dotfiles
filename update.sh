@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/zsh
+
+if [ $# -ne 1 ]; then
+  return 1
+fi
+
 cd ~/dotfiles
-git add -A
 git commit
-git push origin master
+git push origin $1
 cd -
 
