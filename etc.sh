@@ -5,16 +5,27 @@ function mkcd () {
 }
 
 function daily_report () {
-  original_dir=`pwd`
   today=`date "+%Y/%m/%d"`
-  report_path="/Users/ENIXER/esa/daily_report/${today}"
+  report_path="~/esa/daily_report/${today}"
   mkdir -p $report_path
-  cd $report_path
-  echo "日報 ${today}\n===\n" > text.md
-  echo "やったこと\n---\n" >> text.md
-  echo "考えたこと\n---\n" >> text.md
-  echo "気分\n---\n" >> text.md
-  echo "明日やること\n---\n" >> text.md
+  pushd $report_path
+  cat <<CONTENTS > text.md
+日報 ${today}
+===
+
+やったこと
+---
+
+考えたこと
+---
+
+気分
+---
+
+明日やること
+---
+
+CONTENTS
   vim text.md
-  cd $original_dir
+  popd
 }

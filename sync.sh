@@ -5,30 +5,26 @@ function pushconf () {
     return 1
   fi
 
-  original_dir=`pwd`
-  cd ~/dotfiles
+  pushd ~/dotfiles
   git commit
   git push origin $1
-  cd $original_dir
+  popd
 }
 
 function diffconf () {
-  original_dir=`pwd`
-  cd ~/dotfiles
+  pushd ~/dotfiles
   git diff
-  cd $original_dir
+  popd
 }
 
 function addconf () {
-  original_dir=`pwd`
-  cd ~/dotfiles
+  pushd ~/dotfiles
   git add $*
-  cd $original_dir
+  popd
 }
 
 function statconf () {
-  original_dir=`pwd`
-  cd ~/dotfiles
+  pushd ~/dotfiles
   git status
-  cd $original_dir
+  popd
 }
