@@ -87,8 +87,8 @@ alias tconf='vi ~/dotfiles/.tmux.conf'
 alias l='ls -alG'
 alias subl='vim'
 alias vi='vim'
-alias mkcd='source ~/dotfiles/mkcd.sh'
 alias clr='clear'
 alias t=tmux
 
 source ~/dotfiles/sync.sh
+source ~/dotfiles/etc.sh
