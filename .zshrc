@@ -30,7 +30,6 @@ bindkey "^n" history-beginning-search-forward-end
 source ~/.enhancd/enhancd.sh
 
 # directory stack
-setopt auto_pushd
 setopt pushd_ignore_dups
 
 # Use Japanese
