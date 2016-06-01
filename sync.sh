@@ -1,13 +1,9 @@
 #!/bin/zsh
 
 function pushconf () {
-  if [ $# -ne 1 ]; then
-    return 1
-  fi
-
   pushd ~/dotfiles
   git commit
-  git push origin $1
+  git push origin $*
   popd
 }
 
