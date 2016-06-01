@@ -176,6 +176,15 @@ set tags+=.tags
 set tags+=.Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " key mapping
 nnoremap [unite] <Nop>
 nmap <Space>u [unite]
@@ -188,3 +197,5 @@ nnoremap gj j
 nnoremap gk k
 nnoremap SS ZZ
 nnoremap _ $
+nmap <Space>n :lnext<CR>
+nmap <Space>p :lprevious<CR>
