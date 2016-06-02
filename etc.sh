@@ -6,7 +6,7 @@ function mkcd () {
 
 function daily_report () {
   today=`date "+%Y/%m/%d"`
-  report_path="${HOME}/esa/daily_report/${today}"
+  report_path="$HOME/esa/daily_report/${today}"
   mkdir -p $report_path
   pushd $report_path
   cat <<CONTENTS > text.md
