@@ -1,4 +1,7 @@
 export PATH=/usr/local/bin:$PATH
+export ORACLE_HOME=/opt/oracle/instantclient
+export PATH=${ORACLE_HOME}/bin:$PATH
+export DYLD_LIBRARY_PATH=${ORACLE_HOME}/lib
 
 # for go lang
 if [ -x "`which go`" ]; then
