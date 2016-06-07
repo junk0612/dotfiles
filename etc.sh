@@ -29,3 +29,10 @@ CONTENTS
   vim text.md
   popd
 }
+
+function brewup () {
+  brew update
+  brew upgrade
+  brew cleanup
+  brew cask cleanup
+}
