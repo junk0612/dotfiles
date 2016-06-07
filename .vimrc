@@ -44,6 +44,7 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
 call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim'] })
 call dein#add('upamune/esa.vim', { 'depends' : ['webapi-vim'] })
+call dein#add('ctrlpvim/ctrlp.vim')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
