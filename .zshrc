@@ -94,6 +94,11 @@ alias subl='vim'
 alias vi='vim'
 alias clr='clear'
 alias t=tmux
+alias adconf='addconf'
+alias dfconf='diffconf'
+alias psconf='pushconf'
+alias stconf='statconf'
+alias memo='vi ~/Documents/memo.txt'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
