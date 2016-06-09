@@ -21,6 +21,6 @@ function addconf () {
 
 function statconf () {
   pushd ~/dotfiles
-  git status
+  git status -sb
   popd
 }
