@@ -190,8 +190,15 @@ let g:syntastic_check_on_wq = 0
 " key mapping
 nnoremap [unite] <Nop>
 nmap <Space>u [unite]
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
-nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]d :<C-u>Unite directory_mru<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nmap <Space>r [rails]
+nnoremap <silent> [rails]m :<C-u>Unite rails/model<CR>
+nnoremap <silent> [rails]v :<C-u>Unite rails/view<CR>
+nnoremap <silent> [rails]c :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [rails]h :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [rails]g :<C-u>Unite rails/gemfile<CR>
 nmap <Space>t :NERDTreeToggle<CR>
 nnoremap j gj
 nnoremap k gk
