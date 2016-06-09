@@ -203,6 +203,7 @@ nnoremap [find]b :<C-u>CtrlPBuffer<CR>
 nnoremap [find]m :<C-u>CtrlPMRUFiles<CR>
 nnoremap [find]a :<C-u>CtrlPMixed<CR>
 nnoremap [find]u :<C-u>CtrlPUndo<CR>
+nnoremap [find]l :<C-u>CtrlPLine<CR>
 
 nnoremap j gj
 nnoremap k gk
