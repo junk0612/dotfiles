@@ -39,6 +39,7 @@ call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('cakebaker/scss-syntax.vim')
 call dein#add('mattn/webapi-vim')
 call dein#add('powerline/powerline')
+call dein#add('scrooloose/nerdtree')
 call dein#add('scrooloose/syntastic')
 call dein#add('szw/vim-tags')
 call dein#add('tomtom/tcomment_vim')
@@ -102,6 +103,7 @@ autocmd BufWritePre * :FixWhitespace
 autocmd QuickFixCmdPost *grep* cwindow
 
 " alias
+let NERDTreeShowHidden = 1
 " Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
@@ -190,6 +192,7 @@ nnoremap [unite] <Nop>
 nmap <Space>u [unite]
 nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
 nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
+nmap <Space>t :NERDTreeToggle<CR>
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
