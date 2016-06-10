@@ -50,6 +50,7 @@ call dein#add('tpope/vim-surround')
 call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim'] })
 call dein#add('upamune/esa.vim', { 'depends' : ['webapi-vim'] })
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('ujihisa/unite-gem')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -93,7 +94,7 @@ set showtabline=2
 set smartcase
 set smartindent
 set softtabstop=0
-set statusline+=%{fugitive#statusline()}
+set statusline=%{fugitive#statusline()}
 set tabstop=4
 filetype plugin indent on
 autocmd! Filetype html setlocal shiftwidth=2
@@ -199,11 +200,12 @@ nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
 nmap <Space>t :NERDTreeToggle<CR>
 
 nmap <Space>f [find]
-nnoremap [find]b :<C-u>CtrlPBuffer<CR>
-nnoremap [find]m :<C-u>CtrlPMRUFiles<CR>
-nnoremap [find]a :<C-u>CtrlPMixed<CR>
+nnoremap [find]f :<C-u>Unite file<CR>
+nnoremap [find]b :<C-u>Unite buffer<CR>
+nnoremap [find]m :<C-u>Unite file_mru<CR>
+nnoremap [find]a :<C-u>Unite file_rec<CR>
 nnoremap [find]u :<C-u>CtrlPUndo<CR>
-nnoremap [find]l :<C-u>CtrlPLine<CR>
+nnoremap [find]l :<C-u>Unite line<CR>
 
 nnoremap j gj
 nnoremap k gk
