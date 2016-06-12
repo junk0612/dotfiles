@@ -34,6 +34,7 @@ setopt pushd_ignore_dups
 
 # Use Japanese
 export LANG=ja_JP.UTF-8
+export LSCOLORS=cxfxcxdxbxegedabagacad
 
 eval "$(rbenv init -)"
 
