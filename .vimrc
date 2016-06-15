@@ -86,7 +86,7 @@ set noshowmode
 set noswapfile
 set number
 set ruler
-set scrolloff=5
+set scrolloff=10
 set shiftwidth=2
 set showcmd
 set showmatch
@@ -207,12 +207,16 @@ nnoremap [find]a :<C-u>Unite file_rec<CR>
 nnoremap [find]u :<C-u>CtrlPUndo<CR>
 nnoremap [find]l :<C-u>Unite line<CR>
 
+nmap <Space>s [syntax]
+nnoremap [syntax]t :<C-u>SyntasticToggleMode<CR>
+nnoremap [syntax]c :<C-u>SyntasticCheck<CR>
+nnoremap [syntax]r :<C-u>SyntasticReset<CR>
+
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap SS ZZ
-nnoremap _ $
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
-nmap <C-p> <Nop>
+nnoremap <C-p> <Nop>
