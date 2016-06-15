@@ -104,3 +104,6 @@ alias memo='vi ~/Documents/memo.txt'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
+
+# npm
+export PATH="$PATH:$HOME/.nodebrew/current/bin"
