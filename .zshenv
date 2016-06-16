@@ -10,5 +10,4 @@ if [ -x "`which go`" ]; then
 fi
 
 # for git/diff-highlight
-GIT_VERSION=`git --version | cut -d ' ' -f3`
-export PATH=$PATH:/usr/local/Cellar/git/$GIT_VERSION/share/git-core/contrib/diff-highlight
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
