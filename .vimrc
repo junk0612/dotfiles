@@ -220,3 +220,4 @@ nnoremap SS ZZ
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <C-p> <Nop>
+nnoremap <ESC><ESC> :noh<CR>
