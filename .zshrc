@@ -108,3 +108,6 @@ source ~/dotfiles/etc.sh
 
 # npm
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
+
+# default editor
+export EDITOR='/usr/local/bin/vim'
