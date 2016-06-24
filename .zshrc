@@ -102,6 +102,8 @@ alias dfconf='diffconf'
 alias psconf='pushconf'
 alias stconf='statconf'
 alias memo='vi ~/Documents/memo.txt'
+alias gcd='ghq look $(ghq list | fzf)'
+alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
