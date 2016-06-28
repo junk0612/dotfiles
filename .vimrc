@@ -81,6 +81,8 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set list
+set listchars=tab:>_,nbsp:%
 set nobackup
 set noshowmode
 set noswapfile
@@ -196,6 +198,8 @@ nnoremap [rails]v :<C-u>Unite rails/view<CR>
 nnoremap [rails]c :<C-u>Unite rails/controller<CR>
 nnoremap [rails]h :<C-u>Unite rails/helper<CR>
 nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
+nnoremap [rails]s :<C-u>Unite rails/stylesheet<CR>
+nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
 
 nmap <Space>t :NERDTreeToggle<CR>
 
@@ -220,4 +224,4 @@ nnoremap SS ZZ
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <C-p> <Nop>
-nnoremap <ESC><ESC> :noh<CR>
+nnoremap <ESC><ESC> :<C-u>noh<CR>
