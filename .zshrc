@@ -57,7 +57,7 @@ alias gc='git commit'
 alias gcb='git checkout -b'
 alias gcl='git clone'
 alias gcm='git commit -m'
-alias gco='git checkout'
+alias gco='git branch | sed -e "s/[ *]//g" | fzf | xargs git checkout'
 alias gcp='git cherry-pick'
 alias gd='git diff'
 alias gf='git fetch'
@@ -113,3 +113,6 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
 # default editor
 export EDITOR='/usr/local/bin/vim'
+
+# for fzf
+export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
