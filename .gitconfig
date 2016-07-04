@@ -1,21 +1,21 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Junichi Kobayashi
-	email = junichi.kobayashi@esm.co.jp
+  name = Junichi Kobayashi
+  email = junichi.kobayashi@esm.co.jp
 [pull]
-	rebase = true
+  rebase = true
 [core]
-	editor = /usr/local/bin/vim
-    excludesfile = /Users/ENIXER/dotfiles/.gitignore_global
+  editor = /usr/local/bin/vim
+  excludesfile = /Users/ENIXER/dotfiles/.gitignore_global
 [alias]
-    delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
 [ghq]
-    root = ~/git
+  root = ~/git
 [fetch]
-    prune = true
+  prune = true
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [diff]
-    compactionHeuristic = true
+  compactionHeuristic = true
