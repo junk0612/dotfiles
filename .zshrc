@@ -7,7 +7,7 @@ precmd (){
     psvar[1]=$vcs_info_msg_0_
 }
 PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
-RPROMPT='%F{yellow}%B[%D %*]%b%f'
+RPROMPT=''
 
 # completion
 autoload -U compinit
@@ -91,7 +91,7 @@ alias gconf='vi ~/dotfiles/.gitconfig'
 alias vconf='vi ~/dotfiles/.vimrc'
 alias tconf='vi ~/dotfiles/.tmux.conf'
 alias gignore='vi ~/dotfiles/.gitignore_global'
-alias l='ls -alG'
+alias l='ls -alGF'
 alias c='cd'
 alias subl='vim'
 alias vi='vim'
