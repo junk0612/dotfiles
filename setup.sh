@@ -6,3 +6,4 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
+ln -s $HOME/.default-gems $HOME/.rbenv/default-gems
