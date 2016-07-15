@@ -49,6 +49,7 @@ alias -g hrk='heroku'
 alias g=git
 alias ga='git add'
 alias gaa='git add -A'
+alias gap='git add -p'
 alias gb='git branch'
 alias gbD='git branch -D'
 alias gba='git branch -a'
