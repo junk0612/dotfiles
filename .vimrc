@@ -107,10 +107,6 @@ autocmd! Filetype eruby setlocal shiftwidth=2
 autocmd BufWritePre * :FixWhitespace
 autocmd QuickFixCmdPost *grep* cwindow
 
-:hi Cursor ctermfg=DarkGray
-:hi CursorLine gui=underline cterm=underline
-:hi CursorLine ctermbg=DarkBlue guibg=DarkBlue
-
 " alias
 let NERDTreeShowHidden = 1
 " Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
