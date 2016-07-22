@@ -37,6 +37,7 @@ call dein#add('Shougo/unite.vim')
 call dein#add('basyura/unite-rails')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('cakebaker/scss-syntax.vim')
+call dein#add('kannokanno/previm')
 call dein#add('mattn/webapi-vim')
 call dein#add('powerline/powerline')
 call dein#add('scrooloose/nerdtree')
@@ -105,7 +106,13 @@ autocmd! Filetype html setlocal shiftwidth=2
 autocmd! Filetype ruby setlocal shiftwidth=2
 autocmd! Filetype eruby setlocal shiftwidth=2
 autocmd BufWritePre * :FixWhitespace
+autocmd BufWritePre * call s:remove_last_brank_line()
 autocmd QuickFixCmdPost *grep* cwindow
+
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
 " alias
 let NERDTreeShowHidden = 1
@@ -192,6 +199,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:previm_open_cmd = 'open -a "Google Chrome"'
+
 " key mapping
 
 nmap <Space>r [rails]
@@ -227,3 +236,10 @@ nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <C-p> <Nop>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
+
+" functions
+function! s:remove_last_brank_line()
+  while getline('$') == ""
+    $delete _
+  endwhile
+endfunction
