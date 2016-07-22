@@ -19,3 +19,5 @@
   diff = diff-highlight | less
 [diff]
   compactionHeuristic = true
+[commit]
+	verbose = true
