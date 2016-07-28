@@ -30,7 +30,14 @@ CONTENTS
   popd
 }
 
-function brewup () {
+function update () {
+  pushd ~/dotfiles
+  git pull origin master
+  popd
+  pushd ~/.enhancd
+  git pull origin master
+  popd
+  source ~/.zshrc
   brew update
   brew upgrade
   brew cleanup
