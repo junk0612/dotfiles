@@ -110,6 +110,7 @@ alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
+source ~/dotfiles/parallel_tests.sh
 
 # npm
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
