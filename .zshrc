@@ -120,3 +120,5 @@ export EDITOR='/usr/local/bin/vim'
 
 # for fzf
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
