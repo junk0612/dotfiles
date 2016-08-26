@@ -43,6 +43,9 @@ bindkey -e
 
 # Global aliases
 alias -g hrk='heroku'
+alias -g B='`git branch | fzf | sed -e "s/^\*[ ]*//g"`'
+alias -g G='| ag'
+alias -g T='$(git ls-files | fzf)'
 
 # Aliases
 ## git
@@ -106,7 +109,7 @@ alias adconf='addconf'
 alias dfconf='diffconf'
 alias psconf='pushconf'
 alias stconf='statconf'
-alias memo='vi ~/Documents/memo.txt'
+alias memo='vim ~/git/etc/memo.txt'
 alias gcd='cd -g'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
