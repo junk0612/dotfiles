@@ -9,6 +9,8 @@ function daily_report () {
   report_path="$HOME/esa/daily_report/${today}"
   mkdir -p $report_path
   pushd $report_path
+  if [ -f 'text.md' ]; then
+  else
   cat <<CONTENTS > text.md
 日報 ${today}
 ===
@@ -26,6 +28,7 @@ function daily_report () {
 ---
 
 CONTENTS
+  fi
   vim text.md
   popd
 }
