@@ -112,6 +112,7 @@ alias stconf='statconf'
 alias memo='vim ~/git/etc/memo.txt'
 alias gcd='cd -g'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
+alias cop='rubocop --config .rubocop.yml'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
