@@ -84,6 +84,7 @@ alias gst='git status -sb'
 alias gsta='git stash'
 alias gstl='git stash list'
 alias gstp='git stash pop'
+alias co='git checkout `git branch | fzf | sed -e "s/\* //g" | awk "{print \$1}"`'
 
 ## rails
 alias bi='bundle install'
