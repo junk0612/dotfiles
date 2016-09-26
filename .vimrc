@@ -235,6 +235,8 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap SS ZZ
+nnoremap ; :
+nnoremap : ;
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <C-p> <Nop>
