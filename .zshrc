@@ -129,3 +129,5 @@ export EDITOR='/usr/local/bin/vim'
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.exenv/bin:$PATH"
+eval "$(exenv init -)"

@@ -34,6 +34,7 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('basyura/unite-rails')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('cakebaker/scss-syntax.vim')
@@ -50,10 +51,10 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
 call dein#add('ujihisa/neco-look', { 'depends' : ['neocomplete.vim'] })
 call dein#add('upamune/esa.vim', { 'depends' : ['webapi-vim'] })
-call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('ujihisa/unite-gem')
 call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+call dein#add('elixir-lang/vim-elixir')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -166,6 +167,13 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -222,8 +230,8 @@ nnoremap [find]f :<C-u>Unite file<CR>
 nnoremap [find]b :<C-u>Unite buffer<CR>
 nnoremap [find]m :<C-u>Unite file_mru<CR>
 nnoremap [find]a :<C-u>Unite file_rec<CR>
-nnoremap [find]u :<C-u>CtrlPUndo<CR>
 nnoremap [find]l :<C-u>Unite line<CR>
+nnoremap [find]w :<C-u>Unite grep:.<CR><C-R><C-W><CR>
 
 nmap <Space>s [syntax]
 nnoremap [syntax]t :<C-u>SyntasticToggleMode<CR>
