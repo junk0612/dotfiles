@@ -1,0 +1,16 @@
+alfred
+astah-community
+docker
+dropbox
+google-chrome
+google-japanese-ime
+idobata-electron
+iterm2
+java
+kindle
+openoffice
+skype
+slack
+sublime-text
+vagrant
+virtualbox
