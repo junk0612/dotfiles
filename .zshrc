@@ -19,15 +19,15 @@ setopt auto_cd
 
 #history
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt hist_ignore_dups
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
-source ~/.enhancd/enhancd.sh
+source ~/.enhancd/init.sh
 
 # directory stack
 setopt pushd_ignore_dups
@@ -38,12 +38,11 @@ export LSCOLORS=cxfxcxdxbxegedabagacad
 
 eval "$(rbenv init -)"
 
-# bind keys
+# bind keys like emacs
 bindkey -e
 
 # Global aliases
 alias -g hrk='heroku'
-alias -g B='`git branch | fzf | sed -e "s/^\*[ ]*//g"`'
 alias -g G='| ag'
 alias -g T='$(git ls-files | fzf)'
 
@@ -62,16 +61,19 @@ alias gc='git commit'
 alias gcb='git checkout -b'
 alias gcl='git clone'
 alias gcamend='git commit --amend'
+alias gcnoedit='git commit --amend --no-edit'
 alias gco='git checkout'
 alias gcp='git cherry-pick'
 alias gd='git diff'
 alias gf='git fetch'
 alias gl='git pull'
+alias glo='git pull origin'
 alias glg='git log --stat'
 alias glgp='git log -p'
 alias gm='git merge'
 alias gp='git push'
 alias gpo='git push origin'
+alias gpof='git push origin -f'
 alias gpom='git push origin master'
 alias grb='git rebase'
 alias grbc='git rebase --continue'
@@ -90,6 +92,7 @@ alias co='git checkout `git branch | fzf | sed -e "s/\* //g" | awk "{print \$1}"
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
+alias bo='bundle open'
 
 ## others
 alias diff='diff -u'
@@ -129,5 +132,7 @@ export EDITOR='/usr/local/bin/vim'
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# for Elixir
 export PATH="$HOME/.exenv/bin:$PATH"
 eval "$(exenv init -)"

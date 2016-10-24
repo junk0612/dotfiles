@@ -243,12 +243,14 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap SS ZZ
+nnoremap m ^
 nnoremap ; :
 nnoremap : ;
+nnoremap <C-j> i<CR><ESC>
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
-nnoremap <C-p> <Nop>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
+nnoremap <C-n><C-n> :set nonumber!<CR>
 
 " functions
 function! s:remove_last_brank_line()
