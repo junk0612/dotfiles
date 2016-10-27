@@ -223,7 +223,7 @@ nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
 nnoremap [rails]s :<C-u>Unite rails/stylesheet<CR>
 nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
 
-nmap <Space>t :NERDTreeToggle<CR>
+nnoremap <Space>t :NERDTreeToggle<CR>
 
 nmap <Space>f [find]
 nnoremap [find]f :<C-u>Unite file<CR>
