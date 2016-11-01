@@ -20,4 +20,4 @@
 [diff]
   compactionHeuristic = true
 [commit]
-	verbose = true
+  verbose = true
