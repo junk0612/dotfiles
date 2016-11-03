@@ -238,6 +238,10 @@ nnoremap [syntax]t :<C-u>SyntasticToggleMode<CR>
 nnoremap [syntax]c :<C-u>SyntasticCheck<CR>
 nnoremap [syntax]r :<C-u>SyntasticReset<CR>
 
+nnoremap <Space>g :<C-u>Ag<CR>
+
+nnoremap <C-r><C-r> :<C-u>source ~/.vimrc<CR>
+
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
