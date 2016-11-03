@@ -114,7 +114,7 @@ alias dfconf='diffconf'
 alias psconf='pushconf'
 alias stconf='statconf'
 alias memo='vim ~/git/etc/memo.txt'
-alias gcd='cd -g'
+alias gcd='cd -G'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias cop='rubocop --config .rubocop.yml'
 
