@@ -67,3 +67,10 @@ MacOS 10.12 Sierra
   - Google 日本語入力でスペースをいつでも半角にする
     - ステータスバーにある Google 日本語入力の入力モードから「環境設定」
     - スペースの入力: 半角
+  - スクリーンショットの影を消し、任意のディレクトリに保存する
+```sh
+mkdir ~/Documents/screencaptures
+defaults write com.apple.screencapture disable-shadow -boolean true
+defaults write com.apple.screencapture location ~/Documents/screencaptures/
+killall SystemUIServer
+```
