@@ -22,7 +22,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 " Required:
-call dein#begin(expand('/Users/ENIXER/.vim/'))
+call dein#begin(expand('/Users/junk0612/.vim/'))
 
 " Let dein manage dein
 " Required:
