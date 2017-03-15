@@ -55,6 +55,7 @@ call dein#add('ujihisa/unite-gem')
 call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('elixir-lang/vim-elixir')
+call dein#add('slashmili/alchemist.vim')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -87,7 +88,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:>_,nbsp:%
+set listchars=tab:>\ ,nbsp:%
 set nobackup
 set noshowmode
 set noswapfile
@@ -101,7 +102,6 @@ set showtabline=2
 set smartcase
 set smartindent
 set softtabstop=0
-set statusline=%{fugitive#statusline()}
 set tabstop=4
 filetype plugin indent on
 autocmd! Filetype html setlocal shiftwidth=2
@@ -201,9 +201,14 @@ set tags+=.tags
 set tags+=.Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
 
+set statusline=%f
+
+set statusline+=%=
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set statusline+=(%l\,\ %c)
+set statusline+=%{fugitive#statusline()}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -223,8 +228,6 @@ nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
 nnoremap [rails]s :<C-u>Unite rails/stylesheet<CR>
 nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
 
-nnoremap <Space>t :NERDTreeToggle<CR>
-
 nmap <Space>f [find]
 nnoremap [find]f :<C-u>Unite file<CR>
 nnoremap [find]b :<C-u>Unite buffer<CR>
@@ -238,7 +241,18 @@ nnoremap [syntax]t :<C-u>SyntasticToggleMode<CR>
 nnoremap [syntax]c :<C-u>SyntasticCheck<CR>
 nnoremap [syntax]r :<C-u>SyntasticReset<CR>
 
-nnoremap <Space>g :<C-u>Ag<CR>
+nmap <Space>g [git]
+nnoremap [git]a :<C-u>Gwrite<CR>
+nnoremap [git]c :<C-u>Gcommit<CR>
+nnoremap [git]d :<C-u>Gdiff<CR>
+nnoremap [git]b :<C-u>Gblame<CR>
+nnoremap [git]m :<C-u>Gmove<Space>
+nnoremap [git]r :<C-u>Gread<CR>
+nnoremap [git]s :<C-u>Gstatus<CR>
+
+nnoremap <Space>t :NERDTreeToggle<CR>
+
+nnoremap <Space>a :<C-u>Ag<CR>
 
 nnoremap <Space>; :<C-u>source ~/.vimrc<CR>
 
@@ -256,6 +270,7 @@ nmap <Space>p :lprevious<CR>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 nnoremap <C-n><C-n> :set nonumber!<CR>
 
+inoremap <S-tab> <C-v><tab>
 " functions
 function! s:remove_last_brank_line()
   while getline('$') == ""
