@@ -43,8 +43,6 @@ bindkey -e
 
 # Global aliases
 alias -g hrk='heroku'
-alias -g G='| ag'
-alias -g T='$(git ls-files | fzf)'
 
 # Aliases
 ## git
@@ -68,6 +66,7 @@ alias gd='git diff'
 alias gf='git fetch'
 alias gl='git pull'
 alias glo='git pull origin'
+alias glom='git pull origin master'
 alias glg='git log --stat'
 alias glgp='git log -p'
 alias gm='git merge'
@@ -85,7 +84,9 @@ alias grm='git remote'
 alias grs='git reset'
 alias gst='git status -sb'
 alias gsta='git stash'
+alias gstd='git stash drop'
 alias gstl='git stash list'
+alias gstlp='git stash list -p'
 alias gstp='git stash pop'
 alias co='git checkout `git branch | fzf | sed -e "s/\* //g" | awk "{print \$1}"`'
 
