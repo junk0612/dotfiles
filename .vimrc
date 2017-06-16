@@ -231,6 +231,7 @@ nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
 nmap <Space>f [find]
 nnoremap [find]f :<C-u>Unite file<CR>
 nnoremap [find]b :<C-u>Unite buffer<CR>
+nnoremap [find]t :<C-u>Unite tab<CR>
 nnoremap [find]m :<C-u>Unite file_mru<CR>
 nnoremap [find]a :<C-u>Unite file_rec<CR>
 nnoremap [find]l :<C-u>Unite line<CR>
@@ -260,11 +261,13 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-nnoremap SS ZZ
 nnoremap m ^
 nnoremap ; :
 nnoremap : ;
 nnoremap <C-j> i<CR><ESC>
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+nnoremap <Space>T :<C-u>tabnew<CR>
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
