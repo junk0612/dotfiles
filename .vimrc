@@ -251,7 +251,7 @@ nnoremap [git]m :<C-u>Gmove<Space>
 nnoremap [git]r :<C-u>Gread<CR>
 nnoremap [git]s :<C-u>Gstatus<CR>
 
-nnoremap <Space>t :NERDTreeToggle<CR>
+nnoremap <Space>T :NERDTreeToggle<CR>
 
 nnoremap <Space>a :<C-u>Ag<CR>
 
@@ -267,7 +267,7 @@ nnoremap : ;
 nnoremap <C-j> i<CR><ESC>
 nnoremap <C-l> gt
 nnoremap <C-h> gT
-nnoremap <Space>T :<C-u>tabnew<CR>
+nnoremap <Space>t :<C-u>tabnew<CR>
 nmap <Space>n :lnext<CR>
 nmap <Space>p :lprevious<CR>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
