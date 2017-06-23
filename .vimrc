@@ -276,7 +276,9 @@ nnoremap <C-n><C-n> :set nonumber!<CR>
 inoremap <S-tab> <C-v><tab>
 " functions
 function! s:remove_last_brank_line()
-  while getline('$') == ""
+  let pos = getpos('.')
+  while getline('$') == "" && line ('$') != 1
     $delete _
   endwhile
+  call setpos('.', pos)
 endfunction
