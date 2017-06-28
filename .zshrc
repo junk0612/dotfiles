@@ -118,7 +118,7 @@ alias stconf='statconf'
 alias memo='vim ~/Documents/memo.md'
 alias gcd='cd -G'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
-alias cop='rubocop --config .rubocop.yml'
+alias cop='rubocop --format fuubar'
 alias f='fillin'
 
 source ~/dotfiles/sync.sh
