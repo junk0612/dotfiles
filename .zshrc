@@ -139,3 +139,6 @@ export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 # for Elixir
 export PATH="$HOME/.exenv/bin:$PATH"
 eval "$(exenv init -)"
+
+# PostgreSQL
+export PGDATA=/usr/local/var/postgres
