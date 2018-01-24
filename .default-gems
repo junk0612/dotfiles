@@ -1,4 +1,4 @@
 bundler
 gem-src
 pry
-ripper-tags
+tmuxinator

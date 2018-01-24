@@ -43,6 +43,7 @@ function update () {
   source ~/.zshrc
   brew update
   brew upgrade
+  brew cask upgrade
   brew cleanup
   brew cask cleanup
 }

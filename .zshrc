@@ -36,8 +36,6 @@ setopt pushd_ignore_dups
 export LANG=ja_JP.UTF-8
 export LSCOLORS=cxfxcxdxbxegedabagacad
 
-eval "$(rbenv init -)"
-
 # bind keys like emacs
 bindkey -e
 
@@ -56,14 +54,16 @@ alias gba='git branch -a'
 alias gbd='git branch -d'
 alias gbm='git branch -m'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gcb='git checkout -b'
 alias gcl='git clone'
-alias gcamend='git commit --amend'
-alias gcnoedit='git commit --amend --no-edit'
+alias gcn='git commit --amend --no-edit'
 alias gco='git checkout'
 alias gcp='git cherry-pick'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gf='git fetch'
+alias gg='git grep'
 alias gl='git pull'
 alias glo='git pull origin'
 alias glom='git pull origin master'
@@ -82,6 +82,8 @@ alias grbs='git rebase --skip'
 alias grhh='git reset --hard HEAD'
 alias grm='git remote'
 alias grs='git reset'
+alias grsh='git reset --hard'
+alias grss='git reset --soft'
 alias gst='git status -sb'
 alias gsta='git stash'
 alias gstd='git stash drop'
@@ -111,6 +113,7 @@ alias v='vim'
 alias vi='vim'
 alias clr='clear'
 alias t=tmux
+alias tm=tmuxinator
 alias adconf='addconf'
 alias dfconf='diffconf'
 alias psconf='pushconf'
@@ -118,7 +121,7 @@ alias stconf='statconf'
 alias memo='vim ~/Documents/memo.md'
 alias gcd='cd -G'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
-alias cop='rubocop --format fuubar'
+alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
 
 source ~/dotfiles/sync.sh
@@ -142,3 +145,15 @@ eval "$(exenv init -)"
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
+
+# for direnv
+eval "$(direnv hook zsh)"
+
+# TODO
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/Cellar/imagemagick@6/6.9.9-14/lib/pkgconfig"
+
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash

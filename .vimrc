@@ -3,11 +3,6 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
@@ -22,7 +17,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 " Required:
-call dein#begin(expand('/Users/junk0612/.vim/'))
+call dein#begin(expand('~/.vim/'))
 
 " Let dein manage dein
 " Required:
@@ -42,7 +37,6 @@ call dein#add('kannokanno/previm')
 call dein#add('mattn/webapi-vim')
 call dein#add('powerline/powerline')
 call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic')
 call dein#add('szw/vim-tags')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-endwise')
@@ -56,6 +50,8 @@ call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('elixir-lang/vim-elixir')
 call dein#add('slashmili/alchemist.vim')
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('w0rp/ale')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -79,7 +75,6 @@ set ambiwidth=double
 set autoindent
 set autoread
 set backspace=indent,eol,start
-set cursorline
 set encoding=utf-8
 set fileencoding=utf-8
 set expandtab
@@ -92,6 +87,7 @@ set listchars=tab:>\ ,nbsp:%
 set nobackup
 set noshowmode
 set noswapfile
+set nowrap
 set number
 set ruler
 set scrolloff=10
@@ -108,7 +104,7 @@ autocmd! Filetype html setlocal shiftwidth=2
 autocmd! Filetype ruby setlocal shiftwidth=2
 autocmd! Filetype eruby setlocal shiftwidth=2
 autocmd BufWritePre * :FixWhitespace
-autocmd BufWritePre * call s:remove_last_brank_line()
+autocmd BufWritePre * call s:remove_last_blank_line()
 autocmd QuickFixCmdPost *grep* cwindow
 
 augroup PrevimSettings
@@ -116,12 +112,11 @@ augroup PrevimSettings
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
-" alias
 let NERDTreeShowHidden = 1
-" Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Use smartcase.
+
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
@@ -195,8 +190,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
 let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
 let g:esa_team = 'esminc'
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 set tags+=.tags
 set tags+=.Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
@@ -205,17 +198,17 @@ set statusline=%f
 
 set statusline+=%=
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
 set statusline+=(%l\,\ %c)
 set statusline+=%{fugitive#statusline()}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 let g:previm_open_cmd = 'open -a "Google Chrome"'
+
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+      \  'ruby': ['ruby', 'rubocop'],
+      \}
 
 " key mapping
 
@@ -237,11 +230,6 @@ nnoremap [find]a :<C-u>Unite file_rec<CR>
 nnoremap [find]l :<C-u>Unite line<CR>
 nnoremap [find]w :<C-u>Unite grep:.<CR><C-R><C-W><CR>
 
-nmap <Space>s [syntax]
-nnoremap [syntax]t :<C-u>SyntasticToggleMode<CR>
-nnoremap [syntax]c :<C-u>SyntasticCheck<CR>
-nnoremap [syntax]r :<C-u>SyntasticReset<CR>
-
 nmap <Space>g [git]
 nnoremap [git]a :<C-u>Gwrite<CR>
 nnoremap [git]c :<C-u>Gcommit<CR>
@@ -250,6 +238,7 @@ nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]m :<C-u>Gmove<Space>
 nnoremap [git]r :<C-u>Gread<CR>
 nnoremap [git]s :<C-u>Gstatus<CR>
+nnoremap [git]l :<C-u>Glog<CR>
 
 nnoremap <Space>T :NERDTreeToggle<CR>
 
@@ -268,14 +257,14 @@ nnoremap <C-j> i<CR><ESC>
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 nnoremap <Space>t :<C-u>tabnew<CR>
-nmap <Space>n :lnext<CR>
-nmap <Space>p :lprevious<CR>
+nmap <Space>p <Plug>(ale_previous_wrap)
+nmap <Space>n <Plug>(ale_next_wrap)
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 nnoremap <C-n><C-n> :set nonumber!<CR>
 
 inoremap <S-tab> <C-v><tab>
 " functions
-function! s:remove_last_brank_line()
+function! s:remove_last_blank_line()
   let pos = getpos('.')
   while getline('$') == "" && line ('$') != 1
     $delete _
