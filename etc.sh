@@ -47,3 +47,9 @@ function update () {
   brew cleanup
   brew cask cleanup
 }
+
+function memop () {
+  mkdir -p ~/Documents/memo
+  today=`date "+%Y%m%d"`
+  vim "$HOME/Documents/memo/${today}.md"
+}

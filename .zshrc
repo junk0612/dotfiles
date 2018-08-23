@@ -119,6 +119,7 @@ alias dfconf='diffconf'
 alias psconf='pushconf'
 alias stconf='statconf'
 alias memo='vim ~/Documents/memo.md'
+alias kpt='vim ~/Documents/kpt.md'
 alias gcd='cd -G'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias cop='rubocop --format fuubar --display-cop-names'
@@ -139,21 +140,14 @@ export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# for Elixir
-export PATH="$HOME/.exenv/bin:$PATH"
-eval "$(exenv init -)"
-
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
 
 # for direnv
 eval "$(direnv hook zsh)"
 
-# TODO
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/Cellar/imagemagick@6/6.9.9-14/lib/pkgconfig"
-
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"

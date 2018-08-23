@@ -6,3 +6,6 @@
 dump.rdb
 $GIT_DIR/config
 docker-bin
+.envrc
+
+.vs/

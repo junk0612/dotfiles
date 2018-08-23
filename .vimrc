@@ -220,6 +220,7 @@ nnoremap [rails]h :<C-u>Unite rails/helper<CR>
 nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
 nnoremap [rails]s :<C-u>Unite rails/stylesheet<CR>
 nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
+nnoremap [rails]l :<C-u>Unite rails/log<CR>
 
 nmap <Space>f [find]
 nnoremap [find]f :<C-u>Unite file<CR>
