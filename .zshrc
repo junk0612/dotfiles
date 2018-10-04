@@ -106,14 +106,14 @@ alias zenvconf='vi ~/dotfiles/.zshenv'
 alias gconf='vi ~/dotfiles/.gitconfig'
 alias vconf='vi ~/dotfiles/.vimrc'
 alias tconf='vi ~/dotfiles/.tmux.conf'
+alias copconf='vi ~/dotfiles/.rubocop.yml'
 alias gignore='vi ~/dotfiles/.gitignore_global'
 alias l='ls -alGF'
 alias c='cd'
 alias v='vim'
 alias vi='vim'
-alias clr='clear'
-alias t=tmux
-alias tm=tmuxinator
+alias t='tmux'
+alias tm='tmuxinator'
 alias adconf='addconf'
 alias dfconf='diffconf'
 alias psconf='pushconf'
@@ -124,6 +124,8 @@ alias gcd='cd -G'
 alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
+alias d='docker'
+alias dc='docker-compose'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh

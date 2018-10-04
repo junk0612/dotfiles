@@ -89,6 +89,7 @@ set noshowmode
 set noswapfile
 set nowrap
 set number
+set redrawtime=2000
 set ruler
 set scrolloff=10
 set shiftwidth=2
