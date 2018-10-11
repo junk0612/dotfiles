@@ -19,6 +19,16 @@ endif
 " Required:
 call dein#begin(expand('~/.vim/'))
 
+" プラグインリストを収めた TOML ファイル
+" 予め TOML ファイル（後述）を用意しておく
+let g:rc_dir    = expand('~/.vim/plugins')
+let s:toml      = g:rc_dir . '/on_start.toml'
+let s:lazy_toml = g:rc_dir . '/lazy.toml'
+
+" TOML を読み込み、キャッシュしておく
+call dein#load_toml(s:toml,      {'lazy': 0})
+call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
 " Let dein manage dein
 " Required:
 call dein#add('Shougo/dein.vim')
@@ -191,18 +201,10 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
 let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
 let g:esa_team = 'esminc'
+let g:airline#extensions#ale#enabled = 1
 set tags+=.tags
 set tags+=.Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
-
-set statusline=%f
-
-set statusline+=%=
-set statusline+=%#warningmsg#
-set statusline+=%{ALEGetStatusLine()}
-set statusline+=%*
-set statusline+=(%l\,\ %c)
-set statusline+=%{fugitive#statusline()}
 
 let g:previm_open_cmd = 'open -a "Google Chrome"'
 
