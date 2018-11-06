@@ -126,6 +126,8 @@ alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
 alias d='docker'
 alias dc='docker-compose'
+alias vplug='v ~/.vim/plugins/on_start.toml'
+alias vlazy='v ~/.vim/plugins/lazy.toml'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh

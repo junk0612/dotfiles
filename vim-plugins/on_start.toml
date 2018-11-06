@@ -1,2 +1,48 @@
 [[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
+hook_add = '''
+    let g:airline#extensions#ale#enabled = 1
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    let NERDTreeShowHidden = 1
+
+    nnoremap <Space>T :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+    let g:ale_sign_column_always = 1
+    let g:ale_linters = {'ruby': ['ruby', 'rubocop']}
+
+    nmap <Space>p <Plug>(ale_previous_wrap)
+    nmap <Space>n <Plug>(ale_next_wrap)
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '''!has('nvim')'''
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '''!has('nvim')'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+hook_add = '''
+    let g:extra_whitespace_ignored_filetypes = ['unite']
+    autocmd BufWritePre * :FixWhiteSpace
+'''
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
