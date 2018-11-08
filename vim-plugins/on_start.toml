@@ -41,7 +41,7 @@ build = 'make'
 repo = 'bronson/vim-trailing-whitespace'
 hook_add = '''
     let g:extra_whitespace_ignored_filetypes = ['unite']
-    autocmd BufWritePre * :FixWhiteSpace
+    autocmd BufWritePre * :FixWhitespace
 '''
 
 [[plugins]]
