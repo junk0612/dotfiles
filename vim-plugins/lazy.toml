@@ -1,35 +1,43 @@
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_add = '''
-    let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-on_source = 'deoplete'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_source = 'deoplete'
-hook_add = '''
-    imap <C-k> <Plug>(neosnippet_expand_or_jump)
-    imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-    " For conceal markers.
-    if has('conceal')
-      set conceallevel=2 concealcursor=niv
-    endif
-
-    let g:neosnippet#snippets_directory = '~/.vim/snippets'
-
-    nnoremap <Space>s :<C-u>NeoSnippetEdit<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_source = 'neosnippet'
+# 入れると重いのでいったん取り除く
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# hook_add = '''
+#     let g:deoplete#enable_at_startup = 1
+# '''
+# hook_post_source = '''
+#     call deoplete#custom#option({'auto_complete_delay': 500, 'smart_case': v:true})
+# '''
+#
+# [[plugins]]
+# repo = 'Shougo/neco-syntax'
+# on_source = 'deoplete'
+#
+# [[plugins]]
+# repo = 'Shougo/neosnippet.vim'
+# on_source = 'deoplete'
+# hook_add = '''
+#     imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#     imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+#
+#     " For conceal markers.
+#     if has('conceal')
+#       set conceallevel=2 concealcursor=niv
+#     endif
+#
+#     let g:neosnippet#snippets_directory = '~/.vim/snippets'
+#
+#     nnoremap <Space>s :<C-u>NeoSnippetEdit<CR>
+# '''
+#
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
+# on_source = 'neosnippet'
 
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

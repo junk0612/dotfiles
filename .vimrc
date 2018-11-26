@@ -29,7 +29,6 @@ call dein#load_toml(s:lazy_toml, {'lazy': 1})
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('basyura/unite-rails')
-call dein#add('szw/vim-tags')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-fugitive')
@@ -91,9 +90,9 @@ set smartindent
 set softtabstop=0
 set tabstop=4
 filetype plugin indent on
-autocmd! Filetype html setlocal shiftwidth=2
-autocmd! Filetype ruby setlocal shiftwidth=2
-autocmd! Filetype eruby setlocal shiftwidth=2
+autocmd Filetype html setlocal shiftwidth=2
+autocmd Filetype ruby setlocal shiftwidth=2
+autocmd Filetype eruby setlocal shiftwidth=2
 autocmd BufWritePre * call s:remove_last_blank_line()
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -124,14 +123,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
-let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
-let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
 let g:esa_team = 'esminc'
-set tags+=.tags
-set tags+=.Gemfile.lock.tags
-nnoremap <C-]> g<C-]>
-
-let g:previm_open_cmd = 'open -a "Google Chrome"'
 
 " key mapping
 
