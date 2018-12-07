@@ -45,6 +45,7 @@ function update () {
   brew upgrade
   brew cask upgrade
   brew cleanup
+  asdf plugin-update --all
 }
 
 function memop () {
