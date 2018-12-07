@@ -41,3 +41,7 @@ on_ft = ['scss']
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['ts']
