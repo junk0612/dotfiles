@@ -38,9 +38,6 @@ call dein#add('upamune/esa.vim', { 'depends' : ['webapi-vim'] })
 call dein#add('ujihisa/unite-gem')
 call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('elixir-lang/vim-elixir')
-call dein#add('slashmili/alchemist.vim')
-call dein#add('kchmck/vim-coffee-script')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
