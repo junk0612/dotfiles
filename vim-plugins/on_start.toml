@@ -59,3 +59,6 @@ hook_add = '''
 
     nnoremap <C-d> g<C-]>
 '''
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
