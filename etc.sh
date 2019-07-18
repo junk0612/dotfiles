@@ -53,3 +53,15 @@ function memop () {
   today=`date "+%Y%m%d"`
   vim "$HOME/Documents/memo/${today}.md"
 }
+
+function gcd() {
+  if [ $# -eq 1 ]; then
+    repo=$(ghq list -p | fzf -q $1)
+  else
+    repo=$(ghq list -p | fzf)
+  fi
+
+  if [ -n "$repo" ]; then
+    cd $repo
+  fi
+}
