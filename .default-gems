@@ -2,4 +2,5 @@ bundler
 gem-src
 pry
 rubocop
+rubocop-rails
 tmuxinator
