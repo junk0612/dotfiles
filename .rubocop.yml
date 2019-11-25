@@ -30,6 +30,9 @@ Lint/AssignmentInCondition:
 Lint/NumberConversion:
   Enabled: false
 
+Metrics/ParameterLists:
+  Enabled: false
+
 Performance/ChainArrayAllocation:
   Enabled: false
 
@@ -52,6 +55,9 @@ Style/BlockDelimiters:
   Enabled: false
 
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CollectionMethods:
   Enabled: false
 
 Style/Copyright:
@@ -117,5 +123,11 @@ Style/StringHashKeys:
 Style/SymbolArray:
   MinSize: 3
 
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+
 Style/TrailingCommaInArrayLiteral:
   Enabled: true
+
+Style/TrailingUnderscoreVariable:
+  Enabled: false
