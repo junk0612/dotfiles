@@ -10,6 +10,9 @@ Bundler/GemComment:
 Metrics/LineLength:
   Max: 160
 
+Layout/MultilineArrayLineBreaks:
+  Enabled: false
+
 Layout/MultilineAssignmentLayout:
   Enabled: false
 
@@ -91,6 +94,9 @@ Style/MethodCallWithArgsParentheses:
   Enabled: false
 
 Style/MissingElse:
+  Enabled: false
+
+Style/MultilineBlockChain:
   Enabled: false
 
 Style/MutableConstant:
