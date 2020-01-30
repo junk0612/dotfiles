@@ -33,6 +33,9 @@ Lint/AssignmentInCondition:
 Lint/NumberConversion:
   Enabled: false
 
+Metrics/LineLength:
+  Max: 160
+
 Metrics/ParameterLists:
   Enabled: false
 
@@ -61,6 +64,27 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/CollectionMethods:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Copyright:
