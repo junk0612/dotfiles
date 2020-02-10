@@ -44,7 +44,7 @@ on_ft = ['toml']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
+on_ft = ['typescript', 'typescript.tsx']
 
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'

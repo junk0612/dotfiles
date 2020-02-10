@@ -90,8 +90,9 @@ filetype plugin indent on
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype eruby setlocal shiftwidth=2
-autocmd Filetype typescript setlocal shiftwidth=4
-autocmd Filetype typescript.tsx setlocal shiftwidth=4
+autocmd Filetype typescript setlocal shiftwidth=2
+autocmd Filetype javascript setlocal shiftwidth=4
+autocmd Filetype typescript.tsx setlocal shiftwidth=2
 autocmd BufWritePre * call s:remove_last_blank_line()
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
