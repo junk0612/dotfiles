@@ -153,4 +153,3 @@ export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
