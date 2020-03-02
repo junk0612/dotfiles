@@ -17,7 +17,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 " Required:
-call dein#begin(expand('~/.vim/'))
+call dein#begin(expand('~/.cache/'))
 
 " load plugins
 let g:rc_dir    = expand('~/.vim/plugins')

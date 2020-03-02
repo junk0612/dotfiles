@@ -10,3 +10,5 @@ docker-bin
 
 .vs/
 *.tags
+
+node_modules
