@@ -57,3 +57,6 @@ on_ft = ['coffee']
 [[plugins]]
 repo = 'elixir-lang/vim-elixir'
 on_ft = ['elixir']
+
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
