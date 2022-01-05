@@ -16,17 +16,22 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-    let g:ale_sign_column_always = 1
-    let g:ale_linters = {'ruby': ['ruby', 'rubocop'], 'typescript': ['tslint']}
-    let g:ale_fixers = {'ruby': ['rubocop']}
-    let g:ale_ruby_rubocop_executable = $HOME . '/.asdf/shims/rubocop'
-    let g:ale_ruby_rubocop_use_global = 1
+repo = 'prabirshrestha/vim-lsp'
 
-    nmap <Space>p <Plug>(ale_previous_wrap)
-    nmap <Space>n <Plug>(ale_next_wrap)
-'''
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -51,14 +56,8 @@ hook_add = '''
 repo = 'mattn/webapi-vim'
 
 [[plugins]]
-repo = 'szw/vim-tags'
-hook_add = '''
-    let g:vim_tags_ctags_binary='/usr/local/bin/ctags'
-
-    set tags=./.tags;$HOME
-
-    nnoremap <C-d> g<C-]>
-'''
+repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
+repo = 'raghur/vim-ghost'
+depends = ['nvim-yarp', 'vim-hug-neovim-rpc']

@@ -91,7 +91,7 @@ autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype eruby setlocal shiftwidth=2
 autocmd Filetype typescript setlocal shiftwidth=2
-autocmd Filetype javascript setlocal shiftwidth=4
+autocmd Filetype javascript setlocal shiftwidth=2
 autocmd Filetype typescript.tsx setlocal shiftwidth=2
 autocmd BufWritePre * call s:remove_last_blank_line()
 autocmd QuickFixCmdPost *grep* cwindow
@@ -114,14 +114,6 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 
 let g:esa_team = 'esminc'
 
@@ -183,3 +175,28 @@ function! s:remove_last_blank_line()
   endwhile
   call setpos('.', pos)
 endfunction
+
+if empty(globpath(&rtp, 'autoload/lsp.vim'))
+  finish
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 1

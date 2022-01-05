@@ -12,3 +12,7 @@ docker-bin
 *.tags
 
 node_modules
+yarn.lock
+package-lock.json
+
+stackprof_*
