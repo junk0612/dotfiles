@@ -10,7 +10,8 @@ PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
 RPROMPT=''
 
 # completion
-autoload -U compinit
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -Uz compinit
 compinit
 setopt correct
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -27,7 +28,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
-source ~/.enhancd/init.sh
 
 # directory stack
 setopt pushd_ignore_dups
@@ -147,9 +147,6 @@ export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
-
-# for direnv
-eval "$(direnv hook zsh)"
 
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 

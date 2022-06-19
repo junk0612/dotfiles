@@ -3,13 +3,11 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~/.cache/dein')
-" dein.vim 本体
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" dein.vim がなければ github から落としてくる
+" Download dein.vim unless it is installed
 if &runtimepath !~# '/dein.vim'
+  let s:dein_dir = expand('~/.cache/dein')
+  let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
   if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
@@ -26,31 +24,22 @@ let s:lazy_toml = g:rc_dir . '/lazy.toml'
 call dein#load_toml(s:toml,      {'lazy': 0})
 call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('basyura/unite-rails')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-rails')
-call dein#add('tpope/vim-surround')
-call dein#add('upamune/esa.vim', { 'depends' : ['webapi-vim'] })
-call dein#add('ujihisa/unite-gem')
-call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-
-" You can specify revision/branch/tag.
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
 " Required:
 call dein#end()
 
 " Required:
 filetype plugin indent on
 
-" If you want to install not installed plugins on startup.
+" Install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
+endif
+
+" Uninstall if plugins are removed from toml file.
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
 endif
 
 "End dein Scripts-------------------------
@@ -86,10 +75,10 @@ set smartcase
 set smartindent
 set softtabstop=0
 set tabstop=4
-filetype plugin indent on
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype eruby setlocal shiftwidth=2
+autocmd FileType go setlocal noexpandtab
 autocmd Filetype typescript setlocal shiftwidth=2
 autocmd Filetype javascript setlocal shiftwidth=2
 autocmd Filetype typescript.tsx setlocal shiftwidth=2
@@ -119,35 +108,6 @@ let g:esa_team = 'esminc'
 
 " key mapping
 
-nmap <Space>r [rails]
-nnoremap [rails]m :<C-u>Unite rails/model<CR>
-nnoremap [rails]v :<C-u>Unite rails/view<CR>
-nnoremap [rails]c :<C-u>Unite rails/controller<CR>
-nnoremap [rails]h :<C-u>Unite rails/helper<CR>
-nnoremap [rails]g :<C-u>Unite rails/gemfile<CR>
-nnoremap [rails]s :<C-u>Unite rails/stylesheet<CR>
-nnoremap [rails]j :<C-u>Unite rails/javascript<CR>
-nnoremap [rails]l :<C-u>Unite rails/log<CR>
-
-nmap <Space>f [find]
-nnoremap [find]f :<C-u>Unite file<CR>
-nnoremap [find]b :<C-u>Unite buffer<CR>
-nnoremap [find]t :<C-u>Unite tab<CR>
-nnoremap [find]m :<C-u>Unite file_mru<CR>
-nnoremap [find]a :<C-u>Unite file_rec<CR>
-nnoremap [find]l :<C-u>Unite line<CR>
-nnoremap [find]w :<C-u>Unite grep:.<CR><C-R><C-W><CR>
-
-nmap <Space>g [git]
-nnoremap [git]a :<C-u>Gwrite<CR>
-nnoremap [git]c :<C-u>Gcommit<CR>
-nnoremap [git]d :<C-u>Gdiff<CR>
-nnoremap [git]b :<C-u>Gblame<CR>
-nnoremap [git]m :<C-u>Gmove<Space>
-nnoremap [git]r :<C-u>Gread<CR>
-nnoremap [git]s :<C-u>Gstatus<CR>
-nnoremap [git]l :<C-u>Glog<CR>
-
 nnoremap <Space>a :<C-u>Ag<CR>
 
 nnoremap <Space>; :<C-u>source ~/.vimrc<CR>
@@ -165,6 +125,9 @@ nnoremap <C-h> gT
 nnoremap <Space>t :<C-u>tabnew<CR>
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 nnoremap <C-n><C-n> :set nonumber!<CR>
+
+vnoremap ; :
+vnoremap : ;
 
 inoremap <S-tab> <C-v><tab>
 " functions
