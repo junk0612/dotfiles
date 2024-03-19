@@ -11,6 +11,7 @@ RPROMPT=''
 
 # completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 setopt correct
@@ -112,8 +113,8 @@ alias copconf='vi ~/dotfiles/.rubocop.yml'
 alias gignore='vi ~/dotfiles/.gitignore_global'
 alias l='ls -alGF'
 alias c='cd'
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
 alias t='tmux'
 alias tm='tmuxinator'
 alias adconf='addconf'
@@ -150,5 +151,6 @@ export PGDATA=/usr/local/var/postgres
 
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+. $HOME/.asdf/asdf.sh
+
+export PATH="$PATH:$HOME/.deno/bin"

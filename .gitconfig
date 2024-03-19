@@ -5,7 +5,7 @@
 [pull]
   rebase = true
 [core]
-  editor = /usr/local/bin/vim
+  editor = /usr/bin/vim
   excludesfile = ~/.gitignore_global
 [alias]
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
