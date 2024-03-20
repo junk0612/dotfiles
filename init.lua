@@ -8,6 +8,7 @@ require("lazy").setup("plugins")
 
 vim.o.mouse = ''
 vim.o.number = true
+vim.o.showtabline = 2
 vim.o.swapfile = false
 vim.o.shiftwidth = 2
 vim.o.scrolloff = 10
