@@ -155,3 +155,4 @@ export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 . $HOME/.asdf/asdf.sh
 
 export PATH="$PATH:$HOME/.deno/bin"
+source /usr/share/doc/fzf/examples/key-bindings.zsh
