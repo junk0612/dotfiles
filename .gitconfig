@@ -8,7 +8,7 @@
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore_global
 [alias]
-  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|main|master'|xargs git branch -d; };f"
 [ghq]
   root = ~/git
 [fetch]
