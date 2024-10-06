@@ -156,3 +156,12 @@ export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 export PATH="$PATH:$HOME/.deno/bin"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+# for git/diff-highlight
+if [ "$(uname)" = 'Darwin' ]; then
+  export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+  # for Apple Silicon
+  # export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
+elif [ "$(uname)" = 'Linux' ]; then
+  export PATH=$PATH:/usr/share/doc/git/contrib/diff-highlight
+fi
