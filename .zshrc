@@ -10,14 +10,15 @@ PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
 RPROMPT=''
 
 # completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit
-compinit
+if [ "$(uname)" = 'Darwin' ] && type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
 setopt correct
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-setopt auto_cd
 
 #history
 HISTFILE=~/.zsh_history
