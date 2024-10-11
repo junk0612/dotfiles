@@ -142,7 +142,7 @@ source ~/dotfiles/parallel_tests.sh
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
 # default editor
-export EDITOR='/usr/local/bin/vim'
+export EDITOR=nvim
 
 # for fzf
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
@@ -154,16 +154,18 @@ export PGDATA=/usr/local/var/postgres
 
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
-. $HOME/.asdf/asdf.sh
+if [ "$(uname)" = 'Darwin' ]; then
+  . $(brew --prefix asdf)/libexec.asdf.sh
+elif [ "$(uname)" = 'Linux' ]; then
+  . $HOME/.asdf/asdf.sh
+fi
 
 export PATH="$PATH:$HOME/.deno/bin"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # for git/diff-highlight
 if [ "$(uname)" = 'Darwin' ]; then
-  export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-  # for Apple Silicon
-  # export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
+  export PATH=$PATH:$(brew --prefix)/share/git-core/contrib/diff-highlight
 elif [ "$(uname)" = 'Linux' ]; then
   export PATH=$PATH:/usr/share/doc/git/contrib/diff-highlight
 fi
