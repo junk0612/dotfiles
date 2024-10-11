@@ -1,3 +1,8 @@
+# PATH
+if [ "$(uname)" = 'Darwin' ]; then
+  export PATH=$(brew --prefix)/bin:$PATH
+fi
+
 # prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats ' (%s:%b)'
@@ -155,7 +160,7 @@ export PGDATA=/usr/local/var/postgres
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 if [ "$(uname)" = 'Darwin' ]; then
-  . $(brew --prefix asdf)/libexec.asdf.sh
+  . $(brew --prefix asdf)/libexec/asdf.sh
 elif [ "$(uname)" = 'Linux' ]; then
   . $HOME/.asdf/asdf.sh
 fi
