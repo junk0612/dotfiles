@@ -151,8 +151,12 @@ export EDITOR=nvim
 
 # for fzf
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ "$(uname)" = 'Darwin' ]; then
+  source <(fzf --zsh)
+elif [ "$(uname)" = 'Linux' ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
@@ -166,7 +170,6 @@ elif [ "$(uname)" = 'Linux' ]; then
 fi
 
 export PATH="$PATH:$HOME/.deno/bin"
-source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # for git/diff-highlight
 if [ "$(uname)" = 'Darwin' ]; then
