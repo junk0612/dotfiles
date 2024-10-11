@@ -1,3 +1,8 @@
+# PATH
+if [ "$(uname)" = 'Darwin' ]; then
+  export PATH=$(brew --prefix)/bin:$PATH
+fi
+
 # prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats ' (%s:%b)'
@@ -10,19 +15,22 @@ PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
 RPROMPT=''
 
 # completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
+fpath=(${ASDF_DIR}/completions $fpath)
+if [ "$(uname)" = 'Darwin' ] && type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
 setopt correct
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-setopt auto_cd
 
-#history
+# history
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_dups
+setopt share_history
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -107,13 +115,14 @@ alias zconf='vi ~/dotfiles/.zshrc'
 alias zenvconf='vi ~/dotfiles/.zshenv'
 alias gconf='vi ~/dotfiles/.gitconfig'
 alias vconf='vi ~/dotfiles/.vimrc'
+alias nvconf='vi ~/dotfiles/init.lua'
 alias tconf='vi ~/dotfiles/.tmux.conf'
 alias copconf='vi ~/dotfiles/.rubocop.yml'
 alias gignore='vi ~/dotfiles/.gitignore_global'
 alias l='ls -alGF'
 alias c='cd'
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
 alias t='tmux'
 alias tm='tmuxinator'
 alias adconf='addconf'
@@ -138,17 +147,33 @@ source ~/dotfiles/parallel_tests.sh
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
 # default editor
-export EDITOR='/usr/local/bin/vim'
+export EDITOR=nvim
 
 # for fzf
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ "$(uname)" = 'Darwin' ]; then
+  source <(fzf --zsh)
+elif [ "$(uname)" = 'Linux' ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
 
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+if [ "$(uname)" = 'Darwin' ]; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
+elif [ "$(uname)" = 'Linux' ]; then
+  . $HOME/.asdf/asdf.sh
+fi
+
+export PATH="$PATH:$HOME/.deno/bin"
+
+# for git/diff-highlight
+if [ "$(uname)" = 'Darwin' ]; then
+  export PATH=$PATH:$(brew --prefix)/share/git-core/contrib/diff-highlight
+elif [ "$(uname)" = 'Linux' ]; then
+  export PATH=$PATH:/usr/share/doc/git/contrib/diff-highlight
+fi

@@ -1,7 +1,6 @@
 require: rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7
   EnabledByDefault: true
 
 Bundler/GemComment:
