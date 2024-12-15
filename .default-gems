@@ -1,6 +1,5 @@
-bundler
 gem-src
-pry
 rubocop
 rubocop-rails
-tmuxinator
+rubocop-rspec
+rubocop-rspec_rails
