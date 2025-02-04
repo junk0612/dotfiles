@@ -1,162 +1,20 @@
-require: rubocop-rails
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
 
 AllCops:
   EnabledByDefault: true
 
-Bundler/GemComment:
+# Disabled because it would mark a lot of offenses unnecessarily.
+Lint/ConstantResolution:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 160
-
-Layout/MultilineArrayLineBreaks:
-  Enabled: false
-
-Layout/MultilineAssignmentLayout:
-  Enabled: false
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/SpaceInsideBlockBraces:
-  EnforcedStyle: space
-  EnforcedStyleForEmptyBraces: space
-  SpaceBeforeBlockParameters: false
-
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
-Lint/AssignmentInCondition:
-  Enabled: false
-
-Lint/NumberConversion:
-  Enabled: false
-
-Metrics/LineLength:
-  Max: 160
-
-Metrics/ParameterLists:
-  Enabled: false
-
-Performance/ChainArrayAllocation:
-  Enabled: false
-
-Rails/InverseOf:
-  Enabled: false
-
-Rails/SaveBang:
-  Enabled: false
-
-Rails/UniqBeforePluck:
-  Enabled: false
-
-Style/AndOr:
-  Enabled: false
-
-Style/AsciiComments:
-  Enabled: false
-
-Style/BlockDelimiters:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/CollectionMethods:
-  Enabled: false
-
+# Copyright is not necessary for each file.
 Style/Copyright:
   Enabled: false
 
-Style/Documentation:
-  Enabled: false
-
-Naming/AccessorMethodName:
-  Enabled: false
-
-Naming/FileName:
-  Enabled: false
-
-Naming/UncommunicativeMethodParamName:
-  Enabled: false
-
-Style/AndOr:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/Copyright:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/DocumentationMethod:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
-Style/FormatString:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/IfUnlessModifier:
-  Enabled: false
-
-Style/InlineComment:
-  Enabled: false
-
-Style/Lambda:
-  Enabled: false
-
+# Agree with some of them individually, but as a whole, it don't behave the way I want it to, so set it to Disable.
 Style/MethodCallWithArgsParentheses:
-  Enabled: false
-
-Style/MissingElse:
-  Enabled: false
-
-Style/MultilineBlockChain:
-  Enabled: false
-
-Style/MutableConstant:
-  Enabled: false
-
-Style/NumericLiterals:
-  Enabled: false
-
-Style/ParallelAssignment:
-  Enabled: false
-
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    default: '()'
-    '%i': '()'
-    '%I': '()'
-    '%r': '()'
-    '%w': '()'
-    '%W': '()'
-
-Style/RescueStandardError:
-  Enabled: false
-
-Style/SingleLineBlockParams:
-  Enabled: false
-
-Style/StringHashKeys:
-  Enabled: false
-
-Style/SymbolArray:
-  MinSize: 3
-
-Style/TernaryParentheses:
-  EnforcedStyle: require_parentheses_when_complex
-
-Style/TrailingCommaInArrayLiteral:
-  Enabled: true
-
-Style/TrailingUnderscoreVariable:
   Enabled: false

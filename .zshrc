@@ -100,6 +100,7 @@ alias gstlp='git stash list -p'
 alias gstp='git stash pop'
 alias gsw='git switch'
 alias gsc='git switch -c'
+alias gsd='git switch -d'
 alias co='git checkout `git branch | fzf | sed -e "s/\* //g" | awk "{print \$1}"`'
 
 ## rails
