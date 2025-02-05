@@ -1,0 +1,11 @@
+vim.o.autoread = true
+vim.o.mouse = ''
+vim.o.number = true
+vim.o.showmode = false
+vim.o.showtabline = 2
+vim.o.swapfile = false
+vim.o.shiftwidth = 2
+vim.o.scrolloff = 10
+vim.o.termguicolors = true
+vim.o.wrap = false
+vim.o.winblend = 30

@@ -6,9 +6,8 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
-mkdir -p $HOME/.config/nvim/lua
-ln -s $HOME/dotfiles/init.lua $HOME/.config/nvim/init.lua
-ln -s $HOME/dotfiles/nvim-plugins $HOME/.config/nvim/lua/plugins
+mkdir -p $HOME/.config
+ln -s -t $HOME/.config/ $HOME/dotfiles/nvim
 
 mkdir -p $HOME/.config/git
 ln -s $HOME/dotfiles/.gitconfig $HOME/.config/git/config
