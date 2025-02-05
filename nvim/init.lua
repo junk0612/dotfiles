@@ -10,3 +10,8 @@ vim.keymap.set("n", "<Space>L", ":Lazy<CR>")
 require("config/option")
 require("config/keymap")
 require("config/highlight")
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"*.rbs"},
+  callback = function() vim.opt.filetype = "rbs" end
+})
