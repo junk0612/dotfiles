@@ -8,7 +8,4 @@ done
 
 mkdir -p $HOME/.config
 ln -s -t $HOME/.config/ $HOME/dotfiles/nvim
-
-mkdir -p $HOME/.config/git
-ln -s $HOME/dotfiles/.gitconfig $HOME/.config/git/config
-ln -s $HOME/dotfiles/.gitignore $HOME/.config/git/ignore
+ln -s -t $HOME/.config/ $HOME/dotfiles/git
