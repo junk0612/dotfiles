@@ -7,14 +7,43 @@ require:
 AllCops:
   EnabledByDefault: true
 
+# This cop does not always contribute the readability of the code.
+Layout/SingleLineBlockChain:
+  Enabled: false
+
+# Enforce no_space in starting braces, but space in ending braces.
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SpaceBeforeBlockParameters: false
+
 # Disabled because it would mark a lot of offenses unnecessarily.
 Lint/ConstantResolution:
+  Enabled: false
+
+# Disabled because this cop's config is too complex.
+Style/BlockDelimiters:
   Enabled: false
 
 # Copyright is not necessary for each file.
 Style/Copyright:
   Enabled: false
 
+# Documentation is not required for each class.
+Style/Documentation:
+  Enabled: false
+
+# Documentation is not required for each method.
+Style/DocumentationMethod:
+  Enabled: false
+
+# I hate to write frozen string literals.
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
 # Agree with some of them individually, but as a whole, it don't behave the way I want it to, so set it to Disable.
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+# This cop contributes performance exactly, but only needs in the very specific cases of performance issues.
+Performance/ChainArrayAllocation:
   Enabled: false
