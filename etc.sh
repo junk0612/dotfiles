@@ -20,11 +20,6 @@ function update () {
   asdf plugin-update --all
 }
 
-function memop () {
-  mkdir -p ~/Documents/memo
-  today=`date "+%Y%m%d"`
-  vim "$HOME/Documents/memo/${today}.md"
-}
 
 function gcd() {
   if [ $# -eq 1 ]; then
