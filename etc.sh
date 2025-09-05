@@ -4,6 +4,16 @@ function mkcd () {
   mkdir $1 && cd $_
 }
 
+function vconf () {
+  if [ $# -eq 0 ]; then
+    nvim ~/.config/nvim/init.lua
+  elif [ "$1" = "ls" ]; then
+    ls ~/.config/nvim/lua/config/*.lua 2>/dev/null | xargs -n1 basename | sed 's/\.lua$//'
+  else
+    nvim ~/.config/nvim/lua/config/$1.lua
+  fi
+}
+
 
 function update () {
   pushd ~/dotfiles
