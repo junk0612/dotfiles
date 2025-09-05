@@ -1,7 +1,7 @@
 vim.keymap.set("c", "qt", "tabclose<CR>")
 
-vim.keymap.set("n", ";", ":")
-vim.keymap.set("n", ":", ";")
+vim.keymap.set("", ";", ":")
+vim.keymap.set("", ":", ";")
 vim.keymap.set("n", "m", "^")
 
 vim.keymap.set("n", "<leader>;", ":source ~/.config/nvim/init.lua<CR>")
