@@ -6,6 +6,8 @@
   rebase = true
 [alias]
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|main|master'|xargs git branch -d; };f"
+  push-base-to-origin = "!f () { git branch|egrep 'main|master'|sed -E 's/^.{2}(.*)$/\\1/'|xargs git push origin; };f"
+  pull-base-from-origin = "!f () { git branch|egrep 'main|master'|sed -E 's/^.{2}(.*)$/\\1/'|xargs git pull origin; };f"
 [ghq]
   root = ~/git
 [fetch]
