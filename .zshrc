@@ -174,3 +174,6 @@ if [ "$(uname)" = 'Darwin' ]; then
 elif [ "$(uname)" = 'Linux' ]; then
   export PATH=$PATH:/usr/share/doc/git/contrib/diff-highlight
 fi
+
+# Load local configuration if exists
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
