@@ -14,3 +14,10 @@ docker-bin
 node_modules
 yarn.lock
 package-lock.json
+
+# LLM Agent customization files
+.clinerules
+CLAUDE.md
+AGENTS.md
+
+**/.claude/settings.local.json
