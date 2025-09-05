@@ -14,6 +14,6 @@ return {
 	},
       },
     }
-    vim.keymap.set("n", "<Space>ff", ":Neotree toggle=true<CR>")
+    vim.keymap.set("n", "<leader>ff", ":Neotree toggle=true<CR>")
   end
 }
