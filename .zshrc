@@ -135,7 +135,7 @@ alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
 alias d='docker'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias vplug='v ~/.vim/plugins/on_start.toml'
 alias vlazy='v ~/.vim/plugins/lazy.toml'
 
