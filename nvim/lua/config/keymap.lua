@@ -1,4 +1,4 @@
-vim.keymap.set("c", "qt", "tabclose")
+vim.keymap.set("c", "qt", "tabclose<CR>")
 
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", ":", ";")
