@@ -11,3 +11,5 @@ vim.keymap.set("n", "<C-l>", "gt")
 vim.keymap.set("n", "<C-h>", "gT")
 vim.keymap.set("n", "<C-n><C-n>", ":set number!<CR>")
 vim.keymap.set("n", "<ESC><ESC>", ":noh<CR>")
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
