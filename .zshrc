@@ -136,6 +136,7 @@ alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
 alias d='docker'
 alias dc='docker compose'
+alias ai='ollama'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
