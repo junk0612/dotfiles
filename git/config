@@ -20,3 +20,5 @@
   indentHeuristic = true
 [commit]
   verbose = true
+[init]
+  defaultBranch = master
