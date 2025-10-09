@@ -177,3 +177,6 @@ fi
 
 # Load local configuration if exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# For Claude Code
+export PATH="/home/junk0612/.local/bin:$PATH"
