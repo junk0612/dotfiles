@@ -14,6 +14,15 @@ function vconf () {
   fi
 }
 
+function vplug () {
+  if [ $# -eq 0 ]; then
+    vplug ls
+  elif [ "$1" = "ls" ]; then
+    ls ~/.config/nvim/lua/plugins/*.lua 2>/dev/null | xargs -n1 basename | sed 's/\.lua$//'
+  else
+    nvim ~/.config/nvim/lua/plugins/$1.lua
+  fi
+}
 
 function update () {
   pushd ~/dotfiles
