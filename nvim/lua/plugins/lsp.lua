@@ -7,18 +7,17 @@ return {
   config = function()
     -- Mason setup (LSPサーバーの自動インストール管理)  
     require("mason").setup()
-    
-    -- LSPサーバーの設定
-    local lspconfig = require("lspconfig")
-    
+
     -- Ruby LSP
-    lspconfig.ruby_lsp.setup({})
-    
+    vim.lsp.config("ruby_lsp", {})
+    vim.lsp.enable("ruby_lsp")
+
     -- TypeScript/JavaScript LSP
-    lspconfig.ts_ls.setup({
+    vim.lsp.config("ts_ls", {
       filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     })
-    
+    vim.lsp.enable("ts_ls")
+
     -- mason-lspconfig setup
     require("mason-lspconfig").setup({
       ensure_installed = {
@@ -27,7 +26,7 @@ return {
       },
       automatic_enable = false,
     })
-    
+
     -- 診断表示の設定
     vim.diagnostic.config({
       virtual_text = true,
