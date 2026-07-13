@@ -53,6 +53,13 @@ Style/FrozenStringLiteralComment:
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
+# Double quotes must indicate interpolations
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
 # This cop contributes performance exactly, but only needs in the very specific cases of performance issues.
 Performance/ChainArrayAllocation:
   Enabled: false
