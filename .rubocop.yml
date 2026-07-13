@@ -6,6 +6,7 @@ plugins:
 
 AllCops:
   EnabledByDefault: true
+  NewCops: enable
 
 # This cop does not always contribute the readability of the code.
 Layout/SingleLineBlockChain:
