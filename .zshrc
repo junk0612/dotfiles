@@ -137,6 +137,7 @@ alias f='fillin'
 alias d='docker'
 alias dc='docker compose'
 alias ai='ollama'
+alias cl='claude'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
