@@ -1,1 +1,8 @@
 lazy-lock.json
+
+# claude-config: runtime state and machine-local files
+claude-config/plugins/
+claude-config/session-env/
+claude-config/stats-cache.json
+claude-config/policy-limits.json
+claude-config/settings.local.json
