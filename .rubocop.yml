@@ -21,6 +21,14 @@ Layout/SpaceInsideBlockBraces:
 Lint/ConstantResolution:
   Enabled: false
 
+# This is not a metric that can be checked uniformly using Lint
+Metrics/BlockLength:
+  Enabled: false
+
+# This is not a metric that can be checked uniformly using Lint
+Metrics/MethodLength:
+  Enabled: false
+
 # Disabled because this cop's config is too complex.
 Style/BlockDelimiters:
   Enabled: false
