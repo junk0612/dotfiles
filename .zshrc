@@ -179,3 +179,8 @@ fi
 
 # For Claude Code
 export PATH="/home/junk0612/.local/bin:$PATH"
+
+for version in $(ls ~/.asdf/installs/golang); do
+    export PATH=$PATH:~/.asdf/installs/golang/$version/go/bin
+    export PATH=$PATH:~/.asdf/installs/golang/$version/bin
+done
