@@ -19,6 +19,7 @@ package-lock.json
 .clinerules
 CLAUDE.md
 AGENTS.md
+.claude/worktrees/
 
 **/.claude/settings.local.json
 
