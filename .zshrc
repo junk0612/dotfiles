@@ -185,3 +185,4 @@ for version in $(ls ~/.asdf/installs/golang); do
     export PATH=$PATH:~/.asdf/installs/golang/$version/go/bin
     export PATH=$PATH:~/.asdf/installs/golang/$version/bin
 done
+eval "$(git wt --init zsh)"

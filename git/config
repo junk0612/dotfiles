@@ -22,3 +22,5 @@
   verbose = true
 [init]
   defaultBranch = master
+[wt]
+	basedir = .worktrees
