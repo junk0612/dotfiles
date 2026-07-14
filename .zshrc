@@ -27,9 +27,9 @@ fi
 fpath=(${ASDF_DIR}/completions $fpath)
 if [ "$(uname)" = 'Darwin' ] && type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
 fi
+autoload -Uz compinit
+compinit
 setopt correct
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
