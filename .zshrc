@@ -47,9 +47,6 @@ export LSCOLORS=cxfxcxdxbxegedabagacad
 # bind keys like emacs
 bindkey -e
 
-# Global aliases
-alias -g hrk='heroku'
-
 # Aliases
 ## git
 alias g=git
@@ -124,14 +121,10 @@ alias c='cd'
 alias v='nvim'
 alias vi='nvim'
 alias t='tmux'
-alias tm='tmuxinator'
 alias adconf='addconf'
 alias dfconf='diffconf'
 alias psconf='pushconf'
 alias stconf='statconf'
-alias memo='vim ~/Documents/memo.md'
-alias kpt='vim ~/Documents/kpt.md'
-alias gopen='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias cop='rubocop --format fuubar --display-cop-names'
 alias f='fillin'
 alias d='docker'
@@ -154,11 +147,6 @@ if [ "$(uname)" = 'Darwin' ]; then
 elif [ "$(uname)" = 'Linux' ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
-
-# PostgreSQL
-export PGDATA=/usr/local/var/postgres
-
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 if [ "$(uname)" = 'Darwin' ]; then
   . $(brew --prefix asdf)/libexec/asdf.sh
