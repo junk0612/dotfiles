@@ -1,5 +1,3 @@
-lazy-lock.json
-
 # claude-config: runtime state and machine-local files
 claude-config/plugins/
 claude-config/session-env/
