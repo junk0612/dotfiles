@@ -1,1 +1,9 @@
-export PATH=/usr/local/bin:$PATH
+typeset -U path
+path=(
+  $HOME/.local/bin
+  $HOME/.cargo/bin
+  $HOME/.deno/bin
+  $path
+)
+
+export EDITOR=nvim

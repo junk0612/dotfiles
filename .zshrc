@@ -142,9 +142,6 @@ alias cl='claude'
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
 
-# default editor
-export EDITOR=nvim
-
 # for fzf
 export FZF_DEFAULT_OPTS="--extended --select-1 --exit-0 --reverse --ansi"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -160,8 +157,6 @@ elif [ "$(uname)" = 'Linux' ]; then
   . $HOME/.asdf/asdf.sh
 fi
 
-export PATH="$PATH:$HOME/.deno/bin"
-
 # for git/diff-highlight
 if [ "$(uname)" = 'Darwin' ]; then
   export PATH=$PATH:$(brew --prefix)/share/git-core/contrib/diff-highlight
@@ -171,9 +166,6 @@ fi
 
 # Load local configuration if exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-# For Claude Code
-export PATH="/home/junk0612/.local/bin:$PATH"
 
 for version in $(ls ~/.asdf/installs/golang); do
     export PATH=$PATH:~/.asdf/installs/golang/$version/go/bin
