@@ -28,15 +28,15 @@ function update () {
   pushd ~/dotfiles
   git pull origin master
   popd
-  pushd ~/.enhancd
-  git pull origin master
-  popd
   source ~/.zshrc
-  brew update
-  brew upgrade
-  brew cask upgrade
-  brew cleanup
-  asdf plugin-update --all
+  if [ "$(uname)" = 'Darwin' ]; then
+    brew update
+    brew upgrade
+    brew cleanup
+  elif [ "$(uname)" = 'Linux' ]; then
+    sudo apt update && sudo apt upgrade -y
+  fi
+  asdf plugin update --all
 }
 
 
