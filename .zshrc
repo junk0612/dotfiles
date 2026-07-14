@@ -14,6 +14,15 @@ precmd (){
 PROMPT='%F{cyan}%B%n%b%f at %F{green}%~%f%F{magenta}%1v%f> '
 RPROMPT=''
 
+# ls colors
+if [ "$(uname)" = 'Darwin' ]; then
+  export LSCOLORS=cxfxcxdxbxegedabagacad
+  alias l='ls -alGF'
+else
+  eval "$(dircolors -b)"
+  alias l='ls -alF --color=auto'
+fi
+
 # completion
 fpath=(${ASDF_DIR}/completions $fpath)
 if [ "$(uname)" = 'Darwin' ] && type brew &>/dev/null; then
@@ -42,7 +51,6 @@ setopt pushd_ignore_dups
 
 # Use Japanese
 export LANG=ja_JP.UTF-8
-export LSCOLORS=cxfxcxdxbxegedabagacad
 
 # bind keys like emacs
 bindkey -e
@@ -116,7 +124,6 @@ alias gconf='vi ~/dotfiles/git/config'
 alias tconf='vi ~/dotfiles/.tmux.conf'
 alias copconf='vi ~/dotfiles/.rubocop.yml'
 alias gignore='vi ~/dotfiles/git/ignore'
-alias l='ls -alGF'
 alias c='cd'
 alias v='nvim'
 alias vi='nvim'
