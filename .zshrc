@@ -117,7 +117,7 @@ alias bo='bundle open'
 
 ## others
 alias diff='diff -u'
-alias reset='source ~/.zshrc'
+alias reload='source ~/.zshrc'
 alias zconf='vi ~/dotfiles/.zshrc'
 alias zenvconf='vi ~/dotfiles/.zshenv'
 alias gconf='vi ~/dotfiles/git/config'
