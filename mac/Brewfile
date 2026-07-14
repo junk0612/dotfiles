@@ -1,0 +1,56 @@
+# 2022年時点の brew_list.txt / brew_cask_list.txt を棚卸しして Brewfile 化したもの(2026-07)。
+# 次に Mac をセットアップするときは `brew bundle --file mac/Brewfile` で導入し、
+# 実際に使うものが固まったら `brew bundle dump` で作り直す。
+#
+# 元リストから除外したもの:
+#   - ライブラリ類(cairo, glib, openssl, readline など): 依存として自動で入るため
+#   - rbenv / ruby-build / nodebrew / exenv / elixir-build / erlang / go / ruby / python:
+#     asdf (.tool-versions) 管理に移行済み
+#   - phantomjs: 開発終了
+#   - skype: サービス終了
+
+# CLI
+brew "asdf"                 # .zshrc が brew --prefix asdf を前提にしている
+brew "autoconf"             # asdf での Ruby ビルドに必要
+brew "ctags"
+brew "fzf"
+brew "gawk"
+brew "gh"                   # hub から置き換え
+brew "ghq"
+brew "git"
+brew "graphviz"
+brew "imagemagick"
+brew "neovim"               # 旧リストの vim から置き換え
+brew "nkf"
+brew "postgresql@17"        # 旧 "postgresql"。導入時に最新バージョンを確認する
+brew "redis"
+brew "the_silver_searcher"  # ripgrep に乗り換えるのもあり
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "zsh"
+
+# 使っていた記憶が薄い CLI(必要なら有効化)
+# brew "ansible"
+# brew "doxygen"
+# brew "emacs"
+# brew "emojify"
+# brew "less"               # macOS 標準の less が古い場合のみ
+
+# GUI アプリ
+cask "alfred"
+cask "docker"               # 最近は "docker-desktop" に改名されている可能性あり
+cask "dropbox"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "iterm2"
+
+# 使っていた記憶が薄い/代替がある GUI(必要なら有効化)
+# cask "astah-community"
+# cask "idobata-electron"
+# cask "kindle"             # 現在は Mac App Store 配布
+# cask "openoffice"         # 使うなら libreoffice
+# cask "sublime-text"
+# cask "temurin"            # 旧 "java"
+# cask "vagrant"
+# cask "virtualbox"
