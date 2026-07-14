@@ -1,1 +1,4 @@
-model = "gpt-5-codex"
+# Seed template for ~/.codex/config.toml (copied by setup.sh, not symlinked).
+# codex writes machine-local state (project trust levels, NUX counters) into
+# the live file, so changes there do not flow back into dotfiles.
+personality = "pragmatic"

@@ -13,7 +13,8 @@ ln -sfn $HOME/dotfiles/git $HOME/.config/git
 # ~/.codex and ~/.claude hold runtime state (auth, sessions, caches),
 # so link config files individually instead of symlinking the whole directory
 mkdir -p $HOME/.codex
-ln -sfn $HOME/dotfiles/.codex/config.toml $HOME/.codex/config.toml
+# codex writes trust levels and NUX state into config.toml, so seed-copy it instead of linking
+[ -f $HOME/.codex/config.toml ] || cp $HOME/dotfiles/.codex/config.toml $HOME/.codex/config.toml
 ln -sfn $HOME/dotfiles/.codex/AGENTS.md $HOME/.codex/AGENTS.md
 
 mkdir -p $HOME/.claude
