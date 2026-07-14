@@ -1,6 +1,6 @@
 # PATH
 if [ "$(uname)" = 'Darwin' ]; then
-  export PATH=$(brew --prefix)/bin:$PATH
+  path=($(brew --prefix)/bin $path)
 fi
 
 # prompt
@@ -164,9 +164,9 @@ fi
 
 # for git/diff-highlight
 if [ "$(uname)" = 'Darwin' ]; then
-  export PATH=$PATH:$(brew --prefix)/share/git-core/contrib/diff-highlight
+  path+=($(brew --prefix)/share/git-core/contrib/diff-highlight)
 elif [ "$(uname)" = 'Linux' ]; then
-  export PATH=$PATH:/usr/share/doc/git/contrib/diff-highlight
+  path+=(/usr/share/doc/git/contrib/diff-highlight)
 fi
 
 # Load local configuration if exists
