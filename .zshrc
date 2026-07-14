@@ -157,6 +157,11 @@ elif [ "$(uname)" = 'Linux' ]; then
   . $HOME/.asdf/asdf.sh
 fi
 
+# go install binaries
+if (( $+commands[go] )); then
+  path+=($(go env GOPATH)/bin)
+fi
+
 # for git/diff-highlight
 if [ "$(uname)" = 'Darwin' ]; then
   export PATH=$PATH:$(brew --prefix)/share/git-core/contrib/diff-highlight
@@ -167,8 +172,4 @@ fi
 # Load local configuration if exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-for version in $(ls ~/.asdf/installs/golang); do
-    export PATH=$PATH:~/.asdf/installs/golang/$version/go/bin
-    export PATH=$PATH:~/.asdf/installs/golang/$version/bin
-done
 eval "$(git wt --init zsh)"
