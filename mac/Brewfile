@@ -4,30 +4,27 @@
 #
 # 元リストから除外したもの:
 #   - ライブラリ類(cairo, glib, openssl, readline など): 依存として自動で入るため
-#   - rbenv / ruby-build / nodebrew / exenv / elixir-build / erlang / go / ruby / python:
-#     asdf (.tool-versions) 管理に移行済み
+#   - rbenv / ruby-build / nodebrew / exenv / elixir-build / erlang / go / ruby / python
+#     / ghq / neovim: asdf (.tool-versions) 管理に移行済み
 #   - phantomjs: 開発終了
 #   - skype: サービス終了
+#   - imagemagick / gawk / nkf / tig / tree: 必要になったら入れる
 
 # CLI
 brew "asdf"                 # .zshrc が brew --prefix asdf を前提にしている
 brew "autoconf"             # asdf での Ruby ビルドに必要
+brew "colima"               # docker デーモン用の VM(Docker Desktop は使わない)
 brew "ctags"
+brew "docker"               # CLI クライアントのみ。デーモンは colima で起動する
+brew "docker-compose"       # `docker compose` で呼ぶには ~/.docker/config.json の cliPluginsExtraDirs 設定が必要(brew info docker-compose 参照)
 brew "fzf"
-brew "gawk"
 brew "gh"                   # hub から置き換え
-brew "ghq"
 brew "git"
 brew "graphviz"
-brew "imagemagick"
-brew "neovim"               # 旧リストの vim から置き換え
-brew "nkf"
-brew "postgresql@17"        # 旧 "postgresql"。導入時に最新バージョンを確認する
+brew "postgresql"
 brew "redis"
-brew "the_silver_searcher"  # ripgrep に乗り換えるのもあり
-brew "tig"
+brew "ripgrep"              # the_silver_searcher (ag) から乗り換え
 brew "tmux"
-brew "tree"
 brew "zsh"
 
 # 使っていた記憶が薄い CLI(必要なら有効化)
@@ -39,18 +36,8 @@ brew "zsh"
 
 # GUI アプリ
 cask "alfred"
-cask "docker"               # 最近は "docker-desktop" に改名されている可能性あり
 cask "dropbox"
+cask "firefox"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "iterm2"
-
-# 使っていた記憶が薄い/代替がある GUI(必要なら有効化)
-# cask "astah-community"
-# cask "idobata-electron"
-# cask "kindle"             # 現在は Mac App Store 配布
-# cask "openoffice"         # 使うなら libreoffice
-# cask "sublime-text"
-# cask "temurin"            # 旧 "java"
-# cask "vagrant"
-# cask "virtualbox"
