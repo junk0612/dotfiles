@@ -24,7 +24,7 @@ else
 fi
 
 # completion
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 if [ "$(uname)" = 'Darwin' ] && type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
@@ -149,12 +149,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   source <(fzf --zsh)
 elif [ "$(uname)" = 'Linux' ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-
-if [ "$(uname)" = 'Darwin' ]; then
-  . $(brew --prefix asdf)/libexec/asdf.sh
-elif [ "$(uname)" = 'Linux' ]; then
-  . $HOME/.asdf/asdf.sh
 fi
 
 # go install binaries
