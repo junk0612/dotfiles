@@ -134,7 +134,6 @@ alias cl='claude'
 
 source ~/dotfiles/sync.sh
 source ~/dotfiles/etc.sh
-source ~/dotfiles/parallel_tests.sh
 
 # default editor
 export EDITOR=nvim
