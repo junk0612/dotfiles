@@ -23,3 +23,22 @@ for file in ${CLAUDE_FILES[@]}
 do
     ln -sfn $HOME/dotfiles/claude-config/$file $HOME/.claude/$file
 done
+
+# asdf is a single Go binary since 0.16, so the same install works on mac and Linux
+ASDF_VERSION=v0.16.4
+if [ ! -x $HOME/.local/bin/asdf ]; then
+    os=$(uname | tr '[:upper:]' '[:lower:]')
+    case $(uname -m) in
+        x86_64) arch=amd64 ;;
+        arm64|aarch64) arch=arm64 ;;
+    esac
+    mkdir -p $HOME/.local/bin
+    curl -fsSL https://github.com/asdf-vm/asdf/releases/download/$ASDF_VERSION/asdf-$ASDF_VERSION-$os-$arch.tar.gz | tar -xz -C $HOME/.local/bin
+fi
+
+mkdir -p ${ASDF_DATA_DIR:-$HOME/.asdf}/completions
+$HOME/.local/bin/asdf completion zsh > ${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf
+
+for plugin in $(awk '{print $1}' $HOME/dotfiles/.tool-versions); do
+    $HOME/.local/bin/asdf plugin add $plugin 2>/dev/null || true
+done
