@@ -1,8 +1,5 @@
 {
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(gh pr list:*)",
@@ -11,13 +8,19 @@
       "Bash(gh repo view:*)"
     ]
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "jq -r '\"CWD: \\(.workspace.current_dir) | Model: \\(.model.display_name)\" + (if .context_window.used_percentage then \" | Context Usage: \\(.context_window.used_percentage)%\" else \"\" end) + (if .rate_limits.five_hour.used_percentage then \" | 5h: \\(.rate_limits.five_hour.used_percentage | round)%\" else \"\" end) + (if .rate_limits.seven_day.used_percentage then \" | 7d: \\(.rate_limits.seven_day.used_percentage | round)%\" else \"\" end)'"
   },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true
+  },
+  "tui": "default",
+  "preferredNotifChannel": "terminal_bell",
+  "autoCompactEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1753943975841
-  },
-  "model": "opus[1m]"
+  }
 }
