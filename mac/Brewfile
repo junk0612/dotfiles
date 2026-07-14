@@ -8,7 +8,7 @@
 #     / ghq / neovim: asdf (.tool-versions) 管理に移行済み
 #   - phantomjs: 開発終了
 #   - skype: サービス終了
-#   - imagemagick / gawk / nkf / tig / tree / emacs / emojify / less: 必要になったら入れる
+#   - imagemagick / gawk / nkf / tig / tree / emacs / emojify / less / alfred: 必要になったら入れる
 #     (less は macOS 標準のものが古くて困った場合のみ)
 
 # CLI
@@ -29,7 +29,6 @@ brew "tmux"
 brew "zsh"
 
 # GUI アプリ
-cask "alfred"
 cask "dropbox"
 cask "firefox"
 cask "google-chrome"
