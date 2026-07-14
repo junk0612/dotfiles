@@ -4,7 +4,6 @@
 *.swo
 .rubocop*.yml
 dump.rdb
-$GIT_DIR/config
 docker-bin
 .envrc
 
@@ -22,6 +21,3 @@ AGENTS.md
 .claude/worktrees/
 
 **/.claude/settings.local.json
-
-# Local configuration files
-~/.zshrc.local
