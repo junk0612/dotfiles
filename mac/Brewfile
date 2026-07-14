@@ -8,7 +8,8 @@
 #     / ghq / neovim: asdf (.tool-versions) 管理に移行済み
 #   - phantomjs: 開発終了
 #   - skype: サービス終了
-#   - imagemagick / gawk / nkf / tig / tree: 必要になったら入れる
+#   - imagemagick / gawk / nkf / tig / tree / emacs / emojify / less: 必要になったら入れる
+#     (less は macOS 標準のものが古くて困った場合のみ)
 
 # CLI
 brew "asdf"                 # .zshrc が brew --prefix asdf を前提にしている
@@ -26,13 +27,6 @@ brew "redis"
 brew "ripgrep"              # the_silver_searcher (ag) から乗り換え
 brew "tmux"
 brew "zsh"
-
-# 使っていた記憶が薄い CLI(必要なら有効化)
-# brew "ansible"
-# brew "doxygen"
-# brew "emacs"
-# brew "emojify"
-# brew "less"               # macOS 標準の less が古い場合のみ
 
 # GUI アプリ
 cask "alfred"
