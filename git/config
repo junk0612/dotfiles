@@ -12,19 +12,28 @@
   root = ~/git
 [fetch]
   prune = true
+  pruneTags = true
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
 [diff]
   indentHeuristic = true
+  algorithm = histogram
+  colorMoved = default
 [commit]
   verbose = true
 [init]
   defaultBranch = master
 [push]
   autoSetupRemote = true
+[rebase]
+  autostash = true
 [rerere]
   enabled = true
+[branch]
+  sort = -committerdate
+[help]
+  autocorrect = prompt
 [wt]
 	basedir = .worktrees
