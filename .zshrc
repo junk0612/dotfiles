@@ -46,7 +46,9 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 
-# directory stack
+# directory
+setopt auto_cd
+setopt auto_pushd
 setopt pushd_ignore_dups
 
 # Use Japanese
