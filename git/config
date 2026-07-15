@@ -22,5 +22,9 @@
   verbose = true
 [init]
   defaultBranch = master
+[push]
+  autoSetupRemote = true
+[rerere]
+  enabled = true
 [wt]
 	basedir = .worktrees
