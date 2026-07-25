@@ -1,10 +1,4 @@
 return {
-  "RRethy/nvim-treesitter-endwise",
-  config = function()
-    require('nvim-treesitter.configs').setup({
-      endwise = {
-	enable = true,
-      }
-    })
-  end
+  -- plugin/nvim-treesitter-endwise.lua が自動で init するため設定不要
+  "RRethy/nvim-treesitter-endwise"
 }
