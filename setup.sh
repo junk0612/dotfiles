@@ -15,13 +15,21 @@ ln -sfn $HOME/dotfiles/git $HOME/.config/git
 mkdir -p $HOME/.codex
 # codex writes trust levels and NUX state into config.toml, so seed-copy it instead of linking
 [ -f $HOME/.codex/config.toml ] || cp $HOME/dotfiles/.codex/config.toml $HOME/.codex/config.toml
-ln -sfn $HOME/dotfiles/.codex/AGENTS.md $HOME/.codex/AGENTS.md
+# AGENTS.md holds the shared cross-agent rules, read natively by codex
+ln -sfn $HOME/dotfiles/agents/AGENTS.md $HOME/.codex/AGENTS.md
 
 mkdir -p $HOME/.claude
-CLAUDE_FILES=(settings.json statusline-command.sh skills .mcp.json)
+# CLAUDE.md imports AGENTS.md and adds Claude-Code-only notes; skills dir carries the shared skills
+CLAUDE_FILES=(CLAUDE.md settings.json statusline-command.sh skills .mcp.json)
 for file in ${CLAUDE_FILES[@]}
 do
     ln -sfn $HOME/dotfiles/claude-config/$file $HOME/.claude/$file
+done
+
+# shared Agent Skills (open standard) are linked into codex too; codex keeps its own .system/ skills
+mkdir -p $HOME/.codex/skills
+for skill in $HOME/dotfiles/skills/*/; do
+    ln -sfn "${skill%/}" "$HOME/.codex/skills/$(basename ${skill%/})"
 done
 
 # asdf is a single Go binary since 0.16, so the same install works on mac and Linux

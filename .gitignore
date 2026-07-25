@@ -4,3 +4,8 @@ claude-config/session-env/
 claude-config/stats-cache.json
 claude-config/policy-limits.json
 claude-config/settings.local.json
+
+# ~/.config/git/ignore globally ignores CLAUDE.md/AGENTS.md so they are not committed
+# into work repos, but here they are the canonical source, so keep tracking them
+!/agents/AGENTS.md
+!/claude-config/CLAUDE.md
