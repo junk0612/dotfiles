@@ -12,11 +12,18 @@ description: この開発環境（シェル・ランタイム・ツール・dotf
 ## ランタイム・リポジトリ管理
 - ランタイム（ruby / go / neovim / deno など）は asdf で管理する。`.tool-versions` に集約。
 - リポジトリは ghq で管理する。`gcd` で目的のリポジトリへ移動する。
+- `asdf install rust` は CARGO_HOME を `~/.asdf/installs/rust/<ver>` に向けるため、`cargo install` したバイナリはそのバージョン配下に入る（`asdf reshim rust` で shim が張られる）。**rust のバージョンを上げると入れ直しになる**ので、cargo 製のツールを常用するときは覚えておく。
 
 ## エディタ・ツール
 - エディタは Neovim + lazy.nvim。
 - Docker は有料の Docker Desktop ではなく無料版を使う。
 - ツールは「必要になったら入れる／不要になったら消す」方針。常設ツールを増やさない。
+
+## ツール導入でつまずいたとき
+- 公式配布の prebuilt バイナリが、この環境で動くとは限らない（glibc など OS 側のバージョン要求）。
+  実行できなければ `ldd --version` と `objdump -T <bin> | grep GLIBC` で要求バージョンを確認する。
+- 動かないときはソースビルドに切り替える。ビルド依存が重い場合、
+  default feature を削って不要な依存（JS エンジン・libclang など）を落とせないか先に確認する。
 
 ## dotfiles 運用
 - 設定は `~/dotfiles` に集約し、`setup.sh` で symlink する。
