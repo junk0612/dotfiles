@@ -13,6 +13,10 @@ description: この開発環境（シェル・ランタイム・ツール・dotf
 - ランタイム（ruby / go / neovim / deno など）は asdf で管理する。`.tool-versions` に集約。
 - リポジトリは ghq で管理する。`gcd` で目的のリポジトリへ移動する。
 - `asdf install rust` は CARGO_HOME を `~/.asdf/installs/rust/<ver>` に向けるため、`cargo install` したバイナリはそのバージョン配下に入る（`asdf reshim rust` で shim が張られる）。**rust のバージョンを上げると入れ直しになる**ので、cargo 製のツールを常用するときは覚えておく。
+  - なので常用するツールは、prebuilt があるなら `cargo install` せず **`~/.local/bin` に置く**（`.zshenv` の PATH に入っており、asdf のバージョン更新から独立する）。
+    実例: nvim-treesitter の `main` ブランチが要求する `tree-sitter` CLI は、GitHub Releases の
+    `tree-sitter-linux-x64.gz` を展開して `~/.local/bin/tree-sitter` に置く。過去に `cargo install` したせいで
+    rust を上げたときに消え、パーサが一切ビルドできなくなったことがある。
 
 ## エディタ・ツール
 - エディタは Neovim + lazy.nvim。
