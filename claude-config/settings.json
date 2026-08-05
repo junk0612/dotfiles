@@ -18,6 +18,7 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "tui": "default",
+  "theme": "dark",
   "preferredNotifChannel": "terminal_bell",
   "autoCompactEnabled": false,
   "feedbackSurveyState": {
