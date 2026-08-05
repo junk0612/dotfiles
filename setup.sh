@@ -32,6 +32,15 @@ for skill in $HOME/dotfiles/skills/*/; do
     ln -sfn "${skill%/}" "$HOME/.codex/skills/$(basename ${skill%/})"
 done
 
+# `asdf install ruby` compiles from source, and nvim builds native code too
+# (telescope-fzf-native, tree-sitter parsers), so a fresh Linux box needs a toolchain.
+# On mac these come from mac/Brewfile and the Command Line Tools instead.
+if [ "$(uname)" = 'Linux' ]; then
+    sudo apt update
+    sudo apt install -y build-essential libssl-dev libyaml-dev zlib1g-dev \
+        libffi-dev libreadline-dev libgdbm-dev
+fi
+
 # asdf is a single Go binary since 0.16, so the same install works on mac and Linux
 ASDF_VERSION=v0.16.4
 if [ ! -x $HOME/.local/bin/asdf ]; then
