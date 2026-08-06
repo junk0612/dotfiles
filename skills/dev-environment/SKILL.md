@@ -17,6 +17,11 @@ description: この開発環境（シェル・ランタイム・ツール・dotf
     実例: nvim-treesitter の `main` ブランチが要求する `tree-sitter` CLI は、GitHub Releases の
     `tree-sitter-linux-x64.gz` を展開して `~/.local/bin/tree-sitter` に置く。過去に `cargo install` したせいで
     rust を上げたときに消え、パーサが一切ビルドできなくなったことがある。
+- `npm i -g` も同じ構造で、`~/.asdf/installs/nodejs/<ver>/lib` 配下に入る。インストール後は
+  **`asdf reshim nodejs`** が必要で、**nodejs のバージョンを上げると入れ直しになる**。
+  実例: `playwright` CLI は `npm i -g playwright` + `asdf reshim nodejs` で入れている。
+  ただしブラウザ本体は `~/.cache/ms-playwright` に入るので巻き添えにはならず、
+  再インストールが必要なのは CLI 本体だけ（`playwright install` の再実行は不要）。
 
 ## エディタ・ツール
 - エディタは Neovim + lazy.nvim。

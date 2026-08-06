@@ -84,3 +84,22 @@ if [ "$(uname)" = 'Linux' ] && [ ! -x $HOME/.local/bin/git-wt ]; then
     curl -fsSL https://github.com/k1LoW/git-wt/releases/download/$GIT_WT_VERSION/git-wt_${GIT_WT_VERSION}_linux_$arch.tar.gz \
         | tar -xz -C $HOME/.local/bin git-wt
 fi
+
+# Playwright CLI for checking UI changes in a real browser (see the
+# deliverable-and-verify skill). `npm i -g` lands under the asdf nodejs version dir,
+# so a nodejs bump wipes it and this block re-runs. The browsers live in
+# ~/.cache/ms-playwright and survive independently of asdf.
+# install-deps shells out to apt for the shared libs and fonts
+# (fonts-ipafont-gothic matters -- Japanese pages render as tofu without it),
+# hence Linux-only; on mac the browser bundle needs no extra system packages.
+PLAYWRIGHT_VERSION=1.62.1
+if [ "$(uname)" = 'Linux' ] && npm --version > /dev/null 2>&1; then
+    if [ "$(playwright --version 2>/dev/null)" != "Version $PLAYWRIGHT_VERSION" ]; then
+        npm i -g playwright@$PLAYWRIGHT_VERSION
+        $HOME/.local/bin/asdf reshim nodejs
+        rehash
+        playwright install-deps chromium
+    fi
+    # no-op once the browser is in ~/.cache/ms-playwright, and needs no sudo
+    playwright install chromium
+fi
