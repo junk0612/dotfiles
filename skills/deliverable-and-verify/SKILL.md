@@ -7,9 +7,13 @@ description: 変更を検証する方法（lint・typecheck・ブラウザ確認
 
 ## 検証
 - コードを変更したら lint / typecheck を実行して確認する。実行コマンドは、そのリポジトリの `.github/workflows` を見て引く。
-- UI を変更したときは、playwright MCP で実際にブラウザで表示を確認する。
+- UI を変更したときは、実際にブラウザで表示を確認する。**playwright MCP は使わず、グローバルに入れた playwright CLI を使う。**
+  - スクリーンショットを撮って Read で確認する: `playwright screenshot --viewport-size=1280,720 <url> <out.png>`
+  - ページ全体を見たいときは `--full-page` を付ける。
+  - 出力先はスクラップパッドディレクトリにして、リポジトリを汚さない。
+  - クリックや入力を伴う確認が必要なら、使い捨ての Node スクリプトを書いて `playwright` の API を直接叩く。
 - ブラウザで動作確認する前に、必ず既存のサーバープロセスを確認する。
-  - `ps aux | grep -E "next dev|rails server" | grep -v grep` で確認する。
+  - `ps aux | grep -E "next dev|rails server|middleman" | grep -v grep` で確認する。
   - 既に起動している場合はそのサーバーを使い、新たに起動しない。
 
 ## 成果物のスタイル
