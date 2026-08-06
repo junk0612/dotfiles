@@ -41,6 +41,17 @@ if [ "$(uname)" = 'Linux' ]; then
         libffi-dev libreadline-dev libgdbm-dev
 fi
 
+# .zshrc exports LANG=ja_JP.UTF-8 and runs vcs_info under en_US.UTF-8, but Ubuntu
+# generates nothing beyond C/C.UTF-8, so those settings silently fall back to the C
+# locale -- which garbles Japanese in diff-highlight's paged output and makes every
+# perl-based tool print locale warnings. locale-gen appends the entries to
+# /etc/locale.gen, so the generated set survives.
+# Linux-only: macOS ships its locales prebuilt.
+if [ "$(uname)" = 'Linux' ] && ! locale -a 2>/dev/null | grep -qix ja_JP.utf8; then
+    sudo apt install -y locales
+    sudo locale-gen ja_JP.UTF-8 en_US.UTF-8
+fi
+
 # Ubuntu's git ships diff-highlight as a non-executable doc file (mode 644, root),
 # so git/config's `[pager] diff = diff-highlight | less` produces an empty pager.
 # .zshenv puts the directory on PATH; this adds the exec bit. apt restores mode 644
