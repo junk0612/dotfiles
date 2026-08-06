@@ -5,8 +5,17 @@ description: Git のブランチ操作・コミット・push・モノレポで�
 
 # Git 運用
 
+## 作業の開始（worktree）
+- 新しい作業を始めるときは、既存のチェックアウト上でブランチを切り替えるのではなく、`git wt <branch>` で worktree を作ってその中で作業する。ブランチが無ければ同時に作られる。
+- 起点を指定したいときは `git wt <branch> origin/main` のように start-point を渡す。
+- worktree は `wt.basedir` の設定によりリポジトリ直下の `.worktrees/` に作られる。引数なしの `git wt` で一覧できる。
+- 作業が終わったら `git wt -d <branch>` で worktree とブランチを片付ける（強制は `-D`）。デフォルトブランチは保護されている。
+- `git wt` でのディレクトリ移動は zsh 統合（`.zshrc` の `git wt --init zsh`）による shell function。エージェントの非対話シェルでは cd が持続しないので、worktree を作ったあとはそのパスを明示して作業する。
+- エージェント側に worktree 機能があっても、それではなく `git wt` を使う。
+- モノレポでは親リポジトリではなく、対象の子リポジトリで `git wt` する。
+
 ## ブランチ
-- ブランチの切り替え・作成は `git checkout` ではなく `git switch` を使う（エイリアス `gsw` / `gsc` / `gsd`）。
+- worktree 内でのブランチ切り替え・作成は `git checkout` ではなく `git switch` を使う（エイリアス `gsw` / `gsc` / `gsd`）。
 - ブランチ名はコミットログなどの文脈から、いい感じの名前を提案する。
 - ブランチ名の先頭に `feature` などのプレフィックスは付けない。
 
