@@ -59,3 +59,18 @@ $HOME/.local/bin/asdf completion zsh > ${ASDF_DATA_DIR:-$HOME/.asdf}/completions
 for plugin in $(awk '{print $1}' $HOME/dotfiles/.tool-versions); do
     $HOME/.local/bin/asdf plugin add $plugin 2>/dev/null || true
 done
+
+# git-wt is a Go binary, but `go install` puts it under the asdf golang version dir
+# (see `go env GOBIN`), so it would vanish on the next golang bump and break the
+# `git wt --init zsh` line in .zshrc. Take the release binary instead.
+# The mac release ships as a zip via Homebrew tap, so this is Linux-only.
+GIT_WT_VERSION=v0.29.0
+if [ "$(uname)" = 'Linux' ] && [ ! -x $HOME/.local/bin/git-wt ]; then
+    case $(uname -m) in
+        x86_64) arch=amd64 ;;
+        arm64|aarch64) arch=arm64 ;;
+    esac
+    # the archive also holds README/LICENSE, so extract just the binary
+    curl -fsSL https://github.com/k1LoW/git-wt/releases/download/$GIT_WT_VERSION/git-wt_${GIT_WT_VERSION}_linux_$arch.tar.gz \
+        | tar -xz -C $HOME/.local/bin git-wt
+fi
