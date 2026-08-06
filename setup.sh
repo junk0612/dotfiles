@@ -41,6 +41,16 @@ if [ "$(uname)" = 'Linux' ]; then
         libffi-dev libreadline-dev libgdbm-dev
 fi
 
+# Ubuntu's git ships diff-highlight as a non-executable doc file (mode 644, root),
+# so git/config's `[pager] diff = diff-highlight | less` produces an empty pager.
+# .zshenv puts the directory on PATH; this adds the exec bit. apt restores mode 644
+# on every git upgrade, hence the -x guard rather than a one-shot install step.
+# Linux-only: Homebrew's git already ships an executable copy on mac.
+DIFF_HIGHLIGHT=/usr/share/doc/git/contrib/diff-highlight/diff-highlight
+if [ "$(uname)" = 'Linux' ] && [ -f $DIFF_HIGHLIGHT ] && [ ! -x $DIFF_HIGHLIGHT ]; then
+    sudo chmod +x $DIFF_HIGHLIGHT
+fi
+
 # asdf is a single Go binary since 0.16, so the same install works on mac and Linux
 ASDF_VERSION=v0.16.4
 if [ ! -x $HOME/.local/bin/asdf ]; then
